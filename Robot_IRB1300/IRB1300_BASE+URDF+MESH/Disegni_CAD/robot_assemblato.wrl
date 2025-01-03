@@ -1,0 +1,36 @@
+#VRML V2.0 utf8
+Inline {
+url [" link4_900.wrl "]
+bboxSize -1.000000 -1.000000 -1.000000
+bboxCenter 0.000000 0.000000 0.000000
+}
+Inline {
+url [" link6-foundry.wrl "]
+bboxSize -1.000000 -1.000000 -1.000000
+bboxCenter 0.000000 0.000000 0.000000
+}
+Inline {
+url [" link3.wrl "]
+bboxSize -1.000000 -1.000000 -1.000000
+bboxCenter 0.000000 0.000000 0.000000
+}
+Inline {
+url [" link0-rear cable_ORIENTATO.wrl "]
+bboxSize -1.000000 -1.000000 -1.000000
+bboxCenter 0.000000 0.000000 0.000000
+}
+Inline {
+url [" link2_900.wrl "]
+bboxSize -1.000000 -1.000000 -1.000000
+bboxCenter 0.000000 0.000000 0.000000
+}
+Inline {
+url [" link1_900_DH.wrl "]
+bboxSize -1.000000 -1.000000 -1.000000
+bboxCenter 0.000000 0.000000 0.000000
+}
+Inline {
+url [" link5-foundry.wrl "]
+bboxSize -1.000000 -1.000000 -1.000000
+bboxCenter 0.000000 0.000000 0.000000
+}
