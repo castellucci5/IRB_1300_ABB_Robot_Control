@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+<head>
+</head>
+<Scene>
+<WorldInfo title='VR Morphing Example' info='"Copyright 1998-2019 HUMUSOFT s.r.o. and The MathWorks, Inc." '>
+</WorldInfo>
+<NavigationInfo type='"EXAMINE" '>
+</NavigationInfo>
+<Viewpoint description='View 1' position='0 2 5' orientation='1 0 0 -0.34'>
+</Viewpoint>
+<Transform DEF='MORPH' >
+  <Shape>
+    <Appearance>
+      <Material emissiveColor='0.3 0.3 0.3' diffuseColor='0.3 0.3 0.3'>
+      </Material>
+    </Appearance>
+    <IndexedFaceSet DEF='IFS'  solid='false' coordIndex='0 1 2 3 -1 8 9 1 0 -1 9 10 2 1 -1 10 11 3 2 -1 11 8 0 3 -1 4 5 9 8 -1 5 6 10 9 -1 6 7 11 10 -1 7 4 8 11 -1 5 4 7 6 -1' colorIndex='0 0 0 0 -1 1 1 0 0 -1 1 2 0 0 -1 2 3 0 0 -1 3 1 0 0 -1 4 4 1 1 -1 4 4 2 1 -1 4 4 3 2 -1 4 4 1 3 -1 4 4 4 4 -1' ccw='false'>
+      <Coordinate DEF='IFS_Coords'  point='1 1 1 1 1 -1 -1 1 -1 -1 1 1 1 -1 1 1 -1 -1 -1 -1 -1 -1 -1 1 1 0 1 1 0 -1 -1 0 -1 -1 0 1'>
+      </Coordinate>
+      <Color DEF='IFS_Colormap'  color='1 0 0 1 0 1 1 1 0 1 1 1 0 1 0 0 0 1 0 1 1 0 0 0'>
+      </Color>
+    </IndexedFaceSet>
+  </Shape>
+</Transform>
+</Scene>
+</X3D>

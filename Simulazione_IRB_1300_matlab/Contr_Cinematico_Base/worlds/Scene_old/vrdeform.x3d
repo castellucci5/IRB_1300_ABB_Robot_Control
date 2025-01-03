@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+<head>
+</head>
+<Scene>
+<WorldInfo title='VR Sphere Deformation' info='"Copyright 1998-2019 HUMUSOFT s.r.o. and The MathWorks, Inc." '>
+</WorldInfo>
+<NavigationInfo type='"EXAMINE" '>
+</NavigationInfo>
+<Transform DEF='B1'  translation='3 0 0'>
+  <Shape>
+    <Appearance>
+      <Material>
+      </Material>
+    </Appearance>
+    <Box size='0.3 1 1'>
+    </Box>
+  </Shape>
+</Transform>
+<Transform DEF='B2'  translation='-3 0 0'>
+  <Shape>
+    <Appearance>
+      <Material>
+      </Material>
+    </Appearance>
+    <Box size='0.3 1 1'>
+    </Box>
+  </Shape>
+</Transform>
+<Transform DEF='S' >
+  <Shape>
+    <Appearance>
+      <Material diffuseColor='0.9 0 0.1'>
+      </Material>
+    </Appearance>
+    <Sphere radius='0.8'>
+    </Sphere>
+  </Shape>
+</Transform>
+</Scene>
+</X3D>

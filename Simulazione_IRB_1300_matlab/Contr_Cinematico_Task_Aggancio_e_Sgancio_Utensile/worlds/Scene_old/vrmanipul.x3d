@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+<head>
+</head>
+<Scene>
+<WorldInfo title='VR Manipulator' info='"Copyright 1998-2019 HUMUSOFT s.r.o. and The MathWorks, Inc." '>
+</WorldInfo>
+<NavigationInfo type='"EXAMINE" '>
+</NavigationInfo>
+<Viewpoint DEF='View1'  description='View1' position='0 -5 20' fieldOfView='0.8'>
+</Viewpoint>
+<Viewpoint DEF='View2'  description='View2' position='-3 15 15' orientation='3 0 -1 -1' fieldOfView='0.8'>
+</Viewpoint>
+<Background skyColor='0.52 0.52 1' groundColor='0.8 0.2 0.8'>
+</Background>
+<Transform translation='0 -4.7 0' scale='5 5 5'>
+  <Shape>
+    <Appearance>
+      <Material emissiveColor='1 1 1'>
+      </Material>
+    </Appearance>
+    <IndexedLineSet coordIndex='0 1 5 4 0 3 2 6 7 3 -1 1 2 -1 5 6 -1 4 7 -1'>
+      <Coordinate point='-1 -1 1 1 -1 1 1 1 1 -1 1 1 -1 -1 -1 1 -1 -1 1 1 -1 -1 1 -1'>
+      </Coordinate>
+    </IndexedLineSet>
+  </Shape>
+</Transform>
+<Transform DEF='Portal' >
+  <Shape>
+    <Appearance>
+      <Material emissiveColor='0 0 0.5' diffuseColor='0 0 0.8'>
+      </Material>
+    </Appearance>
+    <Box size='10 1 0.5'>
+    </Box>
+  </Shape>
+  <Transform DEF='Base' >
+    <Shape>
+      <Appearance>
+        <Material emissiveColor='0.5 0 0.5' diffuseColor='0.8 0 0.8'>
+        </Material>
+      </Appearance>
+      <Box size='1.2 1.2 0.8'>
+      </Box>
+    </Shape>
+    <Transform DEF='Telescope'  translation='0 1 0' rotation='0 1 0 2.35619' center='0 5 0'>
+      <Shape>
+        <Appearance>
+          <Material emissiveColor='0 0.5 0' diffuseColor='0 0.8 0'>
+          </Material>
+        </Appearance>
+        <Cylinder radius='0.2' height='10'>
+        </Cylinder>
+      </Shape>
+      <Transform translation='0.5 -4 0' rotation='0 0 1 1.5708'>
+        <Transform DEF='Arm'  rotation='0 1 0 0'>
+          <Shape>
+            <Appearance>
+              <Material emissiveColor='0.5 0 0' diffuseColor='0.8 0 0'>
+              </Material>
+            </Appearance>
+            <Cylinder height='0.8'>
+            </Cylinder>
+          </Shape>
+          <Transform translation='0 0 -1.5' rotation='1 0 0 1.5708'>
+            <Transform DEF='Wrist'  rotation='0 1 0 0'>
+              <Shape>
+                <Appearance>
+                  <Material>
+                  </Material>
+                </Appearance>
+                <Cylinder radius='0.4' height='1.5'>
+                </Cylinder>
+              </Shape>
+              <Transform DEF='Fingers'  translation='0 -0.7 0'>
+                <Transform DEF='Finger1'  rotation='0 0 1 0.3'>
+                  <Shape>
+                    <Appearance>
+                      <Material specularColor='0.5 0.5 0.5' emissiveColor='0.15 0.15 0' diffuseColor='0.8 0.8 0' ambientIntensity='0'>
+                      </Material>
+                    </Appearance>
+                    <Extrusion spine='0 0 0 0.4 -1 0 0 -2 0' scale='1 1 1 1 0.2 0.4' crossSection='0.2 0.2 0.2 -0.2 -0.2 -0.2 -0.2 0.2 0.2 0.2'>
+                    </Extrusion>
+                  </Shape>
+                </Transform>
+                <Transform DEF='Finger2'  rotation='0 0 1 -0.3'>
+                  <Shape>
+                    <Appearance>
+                      <Material specularColor='0.5 0.5 0.5' emissiveColor='0.15 0.15 0' diffuseColor='0.8 0.8 0' ambientIntensity='0'>
+                      </Material>
+                    </Appearance>
+                    <Extrusion spine='0 0 0 -0.4 -1 0 0 -2 0' scale='1 1 1 1 0.2 0.4' crossSection='0.2 0.2 0.2 -0.2 -0.2 -0.2 -0.2 0.2 0.2 0.2'>
+                    </Extrusion>
+                  </Shape>
+                </Transform>
+              </Transform>
+            </Transform>
+            <Transform translation='0 -2.2 0'>
+              <Transform DEF='Grip_Reference'  translation='0 -0.1 0'>
+              </Transform>
+            </Transform>
+          </Transform>
+        </Transform>
+      </Transform>
+    </Transform>
+  </Transform>
+</Transform>
+<Transform DEF='DynamicBars1'  translation='-6 -10 5'>
+  <Transform DEF='Xbar1'  translation='0.4 0 0' center='-0.2 0 0'>
+    <Shape>
+      <Appearance>
+        <Material DEF='XMat1'  diffuseColor='1 0 0'>
+        </Material>
+      </Appearance>
+      <Box size='0.4 0.05 0.05'>
+      </Box>
+    </Shape>
+  </Transform>
+  <Transform DEF='Ybar1'  translation='0 0.4 0' center='-0.2 0 0'>
+    <Shape>
+      <Appearance>
+        <Material DEF='YMat1'  diffuseColor='0 1 0'>
+        </Material>
+      </Appearance>
+      <Box size='0.05 0.4 0.05'>
+      </Box>
+    </Shape>
+  </Transform>
+  <Transform DEF='Zbar1'  translation='0 0 0.4' center='-0.2 0 0'>
+    <Shape>
+      <Appearance>
+        <Material DEF='ZMat1'  diffuseColor='0 0 1'>
+        </Material>
+      </Appearance>
+      <Box size='0.05 0.05 0.4'>
+      </Box>
+    </Shape>
+  </Transform>
+</Transform>
+<Switch DEF='LoadSwitch' >
+  <Group>
+    <Transform DEF='Load'  translation='-3.35356 -8.8 -3.35356' rotation='0 1 0 2.35619'>
+      <Transform DEF='Load_Reference' >
+        <Shape>
+          <Appearance>
+            <Material transparency='0.2' specularColor='0 1 1' shininess='1' emissiveColor='0.1 0 1' diffuseColor='0 1 0' ambientIntensity='1'>
+            </Material>
+          </Appearance>
+          <Box size='0.9 1 0.9'>
+          </Box>
+        </Shape>
+      </Transform>
+    </Transform>
+    <Transform DEF='SourceBase'  translation='-3.35356 -9.6 -3.35356'>
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='0.8 0.8 1'>
+          </Material>
+        </Appearance>
+        <Cylinder radius='1.5' height='0.6'>
+        </Cylinder>
+      </Shape>
+    </Transform>
+    <Transform DEF='DestinationBase'  translation='2.64644 -9.6 2.64644'>
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='0.8 0.8 1'>
+          </Material>
+        </Appearance>
+        <Cylinder radius='1.5' height='0.6'>
+        </Cylinder>
+      </Shape>
+      <Transform DEF='Destination_Point'  translation='0 0.8 0'>
+      </Transform>
+    </Transform>
+  </Group>
+</Switch>
+</Scene>
+</X3D>

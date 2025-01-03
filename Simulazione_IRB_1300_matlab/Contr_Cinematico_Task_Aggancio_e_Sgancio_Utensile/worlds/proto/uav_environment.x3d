@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+<head>
+</head>
+<!--IMAV scene static environment-->
+<!--Copyright 2012-2018 HUMUSOFT s.r.o. and The MathWorks, Inc.-->
+<Scene>
+<!--DEF SkyDome Transform {-->
+<!--	translation	0 0 0-->
+<!--	children [-->
+<!--		Inline {-->
+<!--			url ["SkyDome.x3d"]-->
+<!--		}-->
+<!--	]-->
+<!--}-->
+<Background skyColor='0 0.2 0.7 0 0.5 0.7 0 0.5 1 0 1 1' skyAngle='0.9 1.5 1.57' groundColor='0 0.8 0 0.17255 0.81961 0.18824 0.46667 0.81961 0.44706 0.62353 0.67059 0.6' groundAngle='0.9 1.5 1.57'>
+</Background>
+<Transform DEF='Static_Objects' >
+  <Transform DEF='Grid' >
+    <Inline url='"*sl3dlib/objects/Components/Grids/Grid_201x201.x3d" '>
+    </Inline>
+  </Transform>
+  <Shape DEF='Ground' >
+    <!--repeatS	TRUE-->
+    <Appearance>
+      <TextureTransform scale='1 -1'>
+      </TextureTransform>
+      <ImageTexture url='"*sl3dlib/objects/Textures/General/Gravel.jpg" '>
+      </ImageTexture>
+    </Appearance>
+    <IndexedFaceSet coordIndex='3 2 1 0 -1' colorPerVertex='false'>
+      <Coordinate point='-225 -0.1 -225 225 -0.1 -225 225 -0.1 225 -225 -0.1 225'>
+      </Coordinate>
+    </IndexedFaceSet>
+  </Shape>
+  <Transform DEF='Start_Zone'  translation='-5 0 0'>
+    <Shape DEF='Start_Rect' >
+      <Appearance>
+        <!--      specularColor .31 .28 .26-->
+        <Material DEF='StartZone_Mat'  shininess='0.07' emissiveColor='0.07 0.15 0.14' diffuseColor='0.34 0.71 0.69' ambientIntensity='0.05'>
+        </Material>
+      </Appearance>
+      <IndexedFaceSet coordIndex='3 2 1 0 -1'>
+        <Coordinate point='0.2 0 0.2 4.8 0 0.2 4.8 0 7.8 0.2 0 7.8'>
+        </Coordinate>
+      </IndexedFaceSet>
+    </Shape>
+    <Shape DEF='Start_Border' >
+      <Appearance>
+        <!--      specularColor .31 .28 .26-->
+        <Material USE='StartZone_Mat' >
+        </Material>
+      </Appearance>
+      <IndexedFaceSet coordIndex='3 2 1 0 -1 7 6 5 4 -1 11 10 9 8 -1 15 14 13 12 -1'>
+        <Coordinate point='0 0 0 0.2 0 0 0.2 0 8 0 0 8 0 0 0 5 0 0 5 0 0.2 0 0 0.2 4.8 0 0 5 0 0 5 0 8 4.8 0 8 0 0 7.8 5 0 7.8 5 0 8 0 0 8'>
+        </Coordinate>
+      </IndexedFaceSet>
+    </Shape>
+    <Transform DEF='Take_Off'  translation='2.8 0.05 5.8'>
+      <Shape>
+        <Appearance>
+          <TextureTransform translation='-0.2 0.525' scale='0.7 1.05' rotation='-0.5' center='0.5 0.5'>
+          </TextureTransform>
+          <ImageTexture repeatT='false' repeatS='false' url='"../texture/uav_heliport.png" '>
+          </ImageTexture>
+          <Material diffuseColor='0.5 0.5 0.5'>
+          </Material>
+        </Appearance>
+        <Cylinder side='false' radius='0.5' height='0.1' bottom='false'>
+        </Cylinder>
+      </Shape>
+    </Transform>
+    <!--scale in order to be 1m high-->
+    <Transform DEF='Team_Base_Table'  translation='1 -0.273412 1.5' scale='0.0015 0.000977 0.001' rotation='0 1 0 1.5708'>
+      <Transform>
+        <Transform>
+          <Shape>
+            <Appearance>
+              <Material specularColor='0.3 0.3 0.3' shininess='0.3' diffuseColor='0.0122 0.0122 0.0122' ambientIntensity='0'>
+              </Material>
+            </Appearance>
+            <IndexedFaceSet creaseAngle='1' coordIndex='26 25 28 -1 30 24 31 -1 27 24 33 -1 33 30 32 -1 31 25 26 -1 32 26 27 -1 25 29 28 -1 24 25 31 -1 24 30 33 -1 30 31 32 -1 26 32 31 -1 27 33 32 -1'>
+              <Coordinate DEF='Desk_Metal_IFS_Coord'  point='-500 273.412 -494.118 -500 273.412 105.882 500 273.412 105.882 500 273.412 -494.118 -500 973.412 -494.117 500 973.412 -494.118 500 973.412 105.882 -500 973.412 105.883 450 973.412 -494.118 450 273.412 -494.118 -450 273.412 -494.118 -450 973.412 -494.117 450 973.412 105.882 450 273.412 105.882 -450 273.412 105.882 -450 973.412 105.883 -550 973.412 -544.117 550 973.412 -544.117 550 973.412 155.883 -550 973.412 155.883 -550 1023.41 -544.117 550 1023.41 -544.117 550 1023.41 155.883 -550 1023.41 155.883 430 972.412 -494.117 430 872.412 -494.117 -430 872.412 -494.117 -430 972.412 -494.117 -430 873.412 95.8827 430 873.412 95.8825 410 953.412 -514.117 410 893.412 -514.117 -410 893.412 -514.117 -410 953.412 -514.117'>
+              </Coordinate>
+            </IndexedFaceSet>
+          </Shape>
+        </Transform>
+        <Transform>
+          <Shape>
+            <Appearance>
+              <Material specularColor='0.5 0.5 0.5' shininess='0.32945' diffuseColor='0.1837 0.1837 0.1837' ambientIntensity='0.5'>
+              </Material>
+            </Appearance>
+            <IndexedFaceSet creaseAngle='1' coordIndex='19 16 17 -1 17 21 18 -1 18 22 23 -1 20 21 17 -1 23 20 19 -1 21 20 23 -1 17 18 19 -1 21 22 18 -1 23 19 18 -1 17 16 20 -1 20 16 19 -1 23 22 21 -1'>
+              <Coordinate USE='Desk_Metal_IFS_Coord' >
+              </Coordinate>
+            </IndexedFaceSet>
+          </Shape>
+        </Transform>
+        <Transform>
+          <Shape>
+            <Appearance>
+              <Material specularColor='0.5184 0.5184 0.5184' shininess='0.7868' diffuseColor='0.002 0.002 0.002' ambientIntensity='0'>
+              </Material>
+            </Appearance>
+            <IndexedFaceSet creaseAngle='1' coordIndex='3 5 2 -1 10 11 14 -1 7 4 1 -1 13 12 9 -1 13 12 15 -1 8 5 9 -1 4 11 0 -1 10 14 1 -1 3 2 13 -1 15 12 13 -1 6 13 2 -1 14 7 1 -1 5 6 2 -1 11 15 14 -1 4 0 1 -1 12 8 9 -1 7 14 13 -1 13 6 12 -1 15 7 13 -1 5 3 9 -1 11 10 0 -1 1 0 10 -1 13 9 3 -1 13 14 15 -1'>
+              <Coordinate USE='Desk_Metal_IFS_Coord' >
+              </Coordinate>
+            </IndexedFaceSet>
+          </Shape>
+        </Transform>
+      </Transform>
+    </Transform>
+  </Transform>
+  <Transform DEF='Blue_Zone' >
+    <Shape DEF='Blue_Rect' >
+      <Appearance>
+        <!--      specularColor .31 .28 .26-->
+        <Material DEF='BlueZone_Mat'  shininess='0.07' emissiveColor='0.07 0.15 0.14' diffuseColor='0.34 0.71 0.69' ambientIntensity='0.05'>
+        </Material>
+      </Appearance>
+      <IndexedFaceSet coordIndex='3 2 1 0 -1'>
+        <Coordinate point='0.2 0 0.2 1.8 0 0.2 1.8 0 7.8 0.2 0 7.8'>
+        </Coordinate>
+      </IndexedFaceSet>
+    </Shape>
+    <Shape DEF='Blue_Border' >
+      <Appearance>
+        <Material shininess='0' diffuseColor='0 0.1 1' ambientIntensity='0.5'>
+        </Material>
+      </Appearance>
+      <IndexedFaceSet coordIndex='3 2 1 0 -1 7 6 5 4 -1 11 10 9 8 -1 15 14 13 12 -1'>
+        <Coordinate point='0.2 0 0 0.4 0 0 0.4 0 8 0.2 0 8 0.2 0 0 2 0 0 2 0 0.2 0.2 0 0.2 1.8 0 0 2 0 0 2 0 8 1.8 0 8 0.2 0 7.8 2 0 7.8 2 0 8 0.2 0 8'>
+        </Coordinate>
+      </IndexedFaceSet>
+    </Shape>
+  </Transform>
+  <Transform DEF='Obstacle_Zone'  translation='2 0 0'>
+    <Shape DEF='Obstacle_Rect' >
+      <Appearance>
+        <Material DEF='ObstZone_Mat'  shininess='0' diffuseColor='0.37 0.5 0.33' ambientIntensity='0.5'>
+        </Material>
+      </Appearance>
+      <IndexedFaceSet coordIndex='3 2 1 0 -1'>
+        <Coordinate point='0.2 0 0.2 7.8 0 0.2 7.8 0 7.8 0.2 0 7.8'>
+        </Coordinate>
+      </IndexedFaceSet>
+    </Shape>
+    <Shape DEF='Obstacle_Border' >
+      <Appearance>
+        <Material DEF='Red'  shininess='0' diffuseColor='1 0 0' ambientIntensity='0.5'>
+        </Material>
+      </Appearance>
+      <IndexedFaceSet coordIndex='3 2 1 0 -1 7 6 5 4 -1 11 10 9 8 -1 15 14 13 12 -1'>
+        <Coordinate point='0 0 0 0.2 0 0 0.2 0 8 0 0 8 0 0 0 8 0 0 8 0 0.2 0 0 0.2 7.8 0 0 8 0 0 8 0 8 7.8 0 8 0 0 7.8 8 0 7.8 8 0 8 0 0 8'>
+        </Coordinate>
+      </IndexedFaceSet>
+    </Shape>
+  </Transform>
+  <Transform DEF='Safe_Zone'  translation='10 0 0'>
+    <Shape DEF='Safe_Rect' >
+      <Appearance>
+        <!--      specularColor .31 .28 .26-->
+        <Material DEF='SafeZone_Mat'  shininess='0.07' emissiveColor='0.07 0.15 0.14' diffuseColor='0.34 0.71 0.69' ambientIntensity='0.05'>
+        </Material>
+      </Appearance>
+      <IndexedFaceSet coordIndex='3 2 1 0 -1'>
+        <Coordinate point='0.2 0 0.2 5.8 0 0.2 5.8 0 7.8 0.2 0 7.8'>
+        </Coordinate>
+      </IndexedFaceSet>
+    </Shape>
+    <Shape DEF='Safe_Border' >
+      <Appearance>
+        <Material shininess='0' diffuseColor='0.1 1 0.1' ambientIntensity='0.5'>
+        </Material>
+      </Appearance>
+      <IndexedFaceSet coordIndex='3 2 1 0 -1 7 6 5 4 -1 11 10 9 8 -1 15 14 13 12 -1'>
+        <Coordinate point='0 0 0 0.2 0 0 0.2 0 8 0 0 8 0 0 0 6 0 0 6 0 0.2 0 0 0.2 5.8 0 0 6 0 0 6 0 8 5.8 0 8 0 0 7.8 6 0 7.8 6 0 8 0 0 8'>
+        </Coordinate>
+      </IndexedFaceSet>
+    </Shape>
+    <Transform DEF='QR_Box_1'  translation='2.75 0 3.75'>
+      <Transform translation='0 0.05 0'>
+        <Shape>
+          <!--specularColor 0.2 0.2 0.2-->
+          <Appearance>
+            <Material diffuseColor='1 1 1'>
+            </Material>
+          </Appearance>
+          <Box size='0.5 0.1 0.5'>
+          </Box>
+        </Shape>
+      </Transform>
+      <Transform DEF='QR_Square_1'  translation='0 0.11 0' scale='0.5 0.5 0.5'>
+        <Shape>
+          <Appearance>
+            <ImageTexture repeatT='false' repeatS='false' url='"../texture/uav_QR_matlab.png" '>
+            </ImageTexture>
+          </Appearance>
+          <IndexedFaceSet texCoordIndex='0 1 2 3 -1' solid='false' coordIndex='0 1 2 3 -1'>
+            <TextureCoordinate point='0 0 1 0 1 1 0 1'>
+            </TextureCoordinate>
+            <Coordinate point='-0.5 0 0.5 0.5 0 0.5 0.5 0 -0.5 -0.5 0 -0.5'>
+            </Coordinate>
+          </IndexedFaceSet>
+        </Shape>
+      </Transform>
+    </Transform>
+    <Transform DEF='QR_Box_2'  translation='3 0 5.75'>
+      <Transform translation='0 0.05 0'>
+        <Shape>
+          <!--specularColor 0.2 0.2 0.2-->
+          <Appearance>
+            <Material diffuseColor='1 1 1'>
+            </Material>
+          </Appearance>
+          <Box size='0.5 0.1 0.5'>
+          </Box>
+        </Shape>
+      </Transform>
+      <Transform DEF='QR_Square_2'  translation='0 0.11 0' scale='0.5 0.5 0.5'>
+        <Shape>
+          <Appearance>
+            <ImageTexture repeatT='false' repeatS='false' url='"../texture/uav_QR_simulink.png" '>
+            </ImageTexture>
+          </Appearance>
+          <IndexedFaceSet texCoordIndex='0 1 2 3 -1' solid='false' coordIndex='0 1 2 3 -1'>
+            <TextureCoordinate point='0 0 1 0 1 1 0 1'>
+            </TextureCoordinate>
+            <Coordinate point='-0.5 0 0.5 0.5 0 0.5 0.5 0 -0.5 -0.5 0 -0.5'>
+            </Coordinate>
+          </IndexedFaceSet>
+        </Shape>
+      </Transform>
+    </Transform>
+  </Transform>
+</Transform>
+</Scene>
+</X3D>

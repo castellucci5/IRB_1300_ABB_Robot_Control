@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+<head>
+</head>
+<Scene>
+<WorldInfo title='Inverted Pendulum' info='"Copyright 1998-2019 HUMUSOFT s.r.o. and The MathWorks, Inc." '>
+</WorldInfo>
+<NavigationInfo type='"EXAMINE" '>
+</NavigationInfo>
+<Background skyColor='0.5 0.5 0.5 0.8 0.8 0.8 0.9 0.9 0.9' skyAngle='1.39626 1.51844' groundColor='0.5 0.5 0.5 0.7 0.7 0.7' groundAngle='1.5708'>
+</Background>
+<Transform rotation='0 1 0 -0.7854' center='-180 100 180'>
+  <Viewpoint DEF='Ortho_view'  description='Pseudo orthographic view' position='-180 100 180' orientation='1 0 0 -0.373' fieldOfView='0.065'>
+  </Viewpoint>
+</Transform>
+<Transform rotation='0 1 0 -0.7854' center='-18 10 18'>
+  <Viewpoint DEF='Close_view'  description='Close view' position='-18 10 18' orientation='1 0 0 -0.5' fieldOfView='0.8'>
+  </Viewpoint>
+</Transform>
+<Viewpoint description='View from Top' position='0 30 0' orientation='1 0 0 -1.57' fieldOfView='1'>
+</Viewpoint>
+<Viewpoint description='Front view' position='0 2 13' orientation='0 1 0 0'>
+</Viewpoint>
+<Viewpoint description='View from Left' position='-13 2 0' orientation='0 1 0 -1.57'>
+</Viewpoint>
+<DirectionalLight intensity='0.5' direction='0 -1 -0.35'>
+</DirectionalLight>
+<Transform DEF='Rink' >
+  <Shape>
+    <Appearance>
+      <Material diffuseColor='0.3 0.6 0.9'>
+      </Material>
+    </Appearance>
+    <IndexedFaceSet solid='false' coordIndex='0 1 2 3 -1 0 4 5 1 -1 1 5 6 2 -1 2 6 7 3 -1 3 7 4 0 -1'>
+      <Coordinate DEF='Rink_Coord'  point='-15 0 15 15 0 15 15 0 -15 -15 0 -15 -15 1 15 15 1 15 15 1 -15 -15 1 -15'>
+      </Coordinate>
+    </IndexedFaceSet>
+  </Shape>
+  <Transform translation='-10 0.2 12' rotation='1 0 0 -1.5708'>
+    <Shape>
+      <Text string='"VR Inverted Pendulum with Touch Sensor" "Copyright 1998-2019 HUMUSOFT s.r.o. and The MathWorks, Inc." '>
+        <FontStyle size='0.8' family='"SANS" '>
+        </FontStyle>
+      </Text>
+    </Shape>
+  </Transform>
+</Transform>
+<Transform DEF='Sensors' >
+  <TouchSensor DEF='MouseSensor' >
+  </TouchSensor>
+  <Shape>
+    <Appearance>
+      <Material transparency='0.8' diffuseColor='0 0 0'>
+      </Material>
+    </Appearance>
+    <IndexedFaceSet coordIndex='0 1 2 3 -1'>
+      <Coordinate DEF='Sensor_Coord'  point='-10 0.02 10 10 0.02 10 10 0.02 -10 -10 0.02 -10'>
+      </Coordinate>
+    </IndexedFaceSet>
+  </Shape>
+  <Transform translation='-8 0.05 8' rotation='1 0 0 -1.5708'>
+    <Shape>
+      <Appearance>
+        <Material transparency='0.2'>
+        </Material>
+      </Appearance>
+      <Text string='"Touch Sensor Area" '>
+        <FontStyle size='2' family='"SANS" '>
+        </FontStyle>
+      </Text>
+    </Shape>
+  </Transform>
+</Transform>
+<Transform DEF='Pendulum'  translation='0 1 0'>
+  <Shape>
+    <Appearance>
+      <Material shininess='0.8' emissiveColor='0.7 1 0.3' diffuseColor='0.7 1 0.3'>
+      </Material>
+    </Appearance>
+    <Box size='2.2 0.4 2.2'>
+    </Box>
+  </Shape>
+  <Transform DEF='Pole1' >
+    <Transform DEF='Pole2'  translation='0 2 0' center='0 -2 0'>
+      <Shape>
+        <Appearance>
+          <Material shininess='0.8' emissiveColor='1 0 0' diffuseColor='1 0 0'>
+          </Material>
+        </Appearance>
+        <Cylinder radius='0.2' height='4'>
+        </Cylinder>
+      </Shape>
+    </Transform>
+  </Transform>
+</Transform>
+<Transform DEF='Marker'  translation='0 0.5 0'>
+  <Shape>
+    <Appearance>
+      <Material diffuseColor='0 1 0'>
+      </Material>
+    </Appearance>
+    <Cone height='1.2'>
+    </Cone>
+  </Shape>
+</Transform>
+</Scene>
+</X3D>

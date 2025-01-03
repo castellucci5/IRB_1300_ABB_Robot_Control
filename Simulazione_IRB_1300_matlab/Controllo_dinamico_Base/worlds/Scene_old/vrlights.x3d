@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+<head>
+</head>
+<Scene>
+<WorldInfo title='Variable Lighting Example' info='"Copyright 1998-2019 HUMUSOFT s.r.o. and The MathWorks, Inc." '>
+</WorldInfo>
+<Viewpoint DEF='View'  description='Mount St. Barbara' position='84 5 69' orientation='0 1 0 1.2'>
+</Viewpoint>
+<Viewpoint DEF='DevilsBay'  description='Devil&apos;s Bay' position='14 1 75'>
+</Viewpoint>
+<Viewpoint DEF='SchneeSpitze'  description='Schnee Spitze' position='15 9 15' orientation='0 -1 0 2'>
+</Viewpoint>
+<Viewpoint DEF='Ocean'  description='Ocean' position='48 0 150'>
+</Viewpoint>
+<NavigationInfo type='"FLY" ' headlight='false'>
+</NavigationInfo>
+<DirectionalLight DEF='Sun'  direction='0 -1 0'>
+</DirectionalLight>
+<PointLight DEF='Lamp'  radius='30' color='1 0.8 0.5' attenuation='0 0 0'>
+</PointLight>
+<Background DEF='Bckg'  skyColor='0 0 0 0.1 0.5 0.9 0.3 0.9 1' skyAngle='1.3 1.51844' groundColor='0 0 0.1 0 0 0.8' groundAngle='1.58'>
+</Background>
+<Shape>
+  <Appearance>
+    <Material DEF='AtollMaterial'  shininess='0' diffuseColor='0 0 0.8' ambientIntensity='1'>
+    </Material>
+  </Appearance>
+  <IndexedFaceSet coordIndex='3 2 1 0 -1'>
+    <Coordinate point='-10 0.1 -10 100 0.1 -10 100 0.1 90 -10 0.1 90'>
+    </Coordinate>
+  </IndexedFaceSet>
+</Shape>
+<Shape>
+  <Appearance DEF='ElevApp' >
+    <Material specularColor='0.0955906 0.0955906 0.0955906' shininess='0.078125' diffuseColor='0.551217 0.904409 0.269294' ambientIntensity='0.25'>
+    </Material>
+  </Appearance>
+  <ElevationGrid zSpacing='3' zDimension='28' xSpacing='3' xDimension='32' creaseAngle='3.14' height='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 2 1 0 1 0 0 0 0 0 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 1 2 2 3 0 0 0 0 0 0 0 0 1 2 2 2 2 1 0 0 1 1 1 0 0 0 0 0 0 0 0 1 1 3 4 5 2 1 1 0 0 0 0 0 0 2 1 3 5 2 1 2 2 2 0 0 0 0 0 0 0 0 1 1 5 2 5 4 3 2 1 1 0 0 0 0 0 1 3 4 7 6 8 7 8 5 2 1 1 0 1 7 5 2 3 0 3 2 1 3 6 5 2 1 0 0 0 0 0 1 3 5 6 7 7 6 7 4 3 4 2 1 0 7 8 5 4 2 1 0 0 2 4 5 4 3 1 0 0 0 2 2 3 4 5 5 6 5 8 3 2 1 0 0 0 8 9 6 3 1 0 0 0 0 2 4 4 2 1 1 0 0 4 2 4 4 6 6 5 6 7 5 5 2 0 0 0 7 8 9 5 5 1 0 0 0 0 2 4 4 3 1 0 0 2 4 2 2 5 4 6 5 7 6 7 5 3 1 0 0 6 8 3 2 0 0 0 0 0 0 1 2 2 2 0 0 0 3 5 2 4 3 3 6 4 5 6 2 0 0 0 0 0 3 1 0 0 0 0 0 0 0 0 0 1 2 0 0 0 2 4 2 3 3 3 4 5 3 5 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 3 2 3 1 4 6 6 4 3 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 4 3 4 2 5 7 7 5 4 2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 5 6 7 4 7 9 8 4 2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 6 7 4 7 9 8 9 8 4 2 1 0 0 0 0 0 0 0 0 0 5 5 5 0 0 0 0 0 0 0 0 5 8 9 6 8 7 9 7 6 4 2 1 0 0 0 0 0 0 0 0 5 5 0 5 0 0 0 0 0 0 0 0 8 6 7 4 6 6 8 8 7 5 4 3 2 1 1 0 0 0 0 0 0 5 5 5 0 0 0 0 0 0 0 0 7 7 5 2 3 4 7 9 6 5 3 2 1 1 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 6 5 4 1 0 2 5 9 7 4 2 1 1 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 5 3 3 0 0 1 3 3 3 3 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6 3 2 0 0 0 2 4 5 4 3 3 5 0 0 0 0 0 0 0 0 0 0 0 0 2 4 4 4 4 0 0 5 4 1 0 0 0 0 3 3 6 6 6 7 0 0 0 0 0 0 0 0 0 0 0 0 4 4 3 3 4 0 0 6 3 2 0 0 0 0 1 4 5 6 7 9 0 0 0 0 0 1 1 2 1 1 0 0 3 3 2 1 4 0 0 4 2 1 0 0 0 1 2 3 3 3 4 2 0 0 0 0 1 2 3 2 3 3 0 1 2 3 2 2 3 0 0 1 1 0 0 0 0 0 1 2 2 2 2 1 1 0 0 0 0 1 1 2 2 2 0 0 1 2 0 2 1 0 0 0 1 2 0 0 0 0 0 3 4 2 1 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0'>
+  </ElevationGrid>
+</Shape>
+<Transform translation='24 8.8 57'>
+  <Shape DEF='LightHouse' >
+    <Appearance>
+      <Material emissiveColor='1 0 0' diffuseColor='0 0 0'>
+      </Material>
+    </Appearance>
+    <Cylinder radius='0.1' height='0.8' bottom='false'>
+    </Cylinder>
+  </Shape>
+</Transform>
+<Transform translation='39 8.8 69'>
+  <Shape USE='LightHouse' >
+  </Shape>
+</Transform>
+<Transform translation='52.5 8.8 22.5'>
+  <Shape USE='LightHouse' >
+  </Shape>
+</Transform>
+<Transform translation='27 7.8 15'>
+  <Shape USE='LightHouse' >
+  </Shape>
+</Transform>
+<!--Background color depends on light direction-->
+<Script DEF='Sc1'  directOutput='false' mustEvaluate='false'>
+<field name='atollMaterial' type='SFNode' accessType='initializeOnly'>
+
+  <Material USE='AtollMaterial' >
+  </Material></field>
+<field name='direction' type='SFVec3f' accessType='inputOnly'/>
+<field name='ground' type='MFColor' accessType='outputOnly'/>
+<field name='sky' type='MFColor' accessType='outputOnly'/>
+<![CDATA[vrmlscript:
+    function direction(value) {
+      y = value[1];
+
+      // if the sun is below the horizon, make the sky and ocean dark
+      if (y > 0 || y < -1)
+      {
+        s = new SFColor(0, 0, 0);
+        sky[0] = s;
+        sky[1] = s;
+        sky[2] = s;
+        ground[0] = s;
+        ground[1] = s;
+      }
+
+      // otherwise set sky and ocean lightness according to sun position
+      else
+      {
+        s = new SFColor(0, 0, 0.1);
+        sky[0] = s;
+        sky[1] = new SFColor(-0.1*y, -0.5*y, -0.9*y);
+        sky[2] = new SFColor(-0.3*y, -0.9*y, -y);
+        ground[0] = s;
+        ground[1] = new SFColor(0, 0, -0.8*y);
+        atollMaterial.diffuseColor = new SFColor(0, 0, -0.8*y);
+      }
+
+      // keep weak light over the horizon at night
+      s = sky[2];
+      if (s[0] < 0.05) s[0] = 0.05;
+      if (s[1] < 0.05) s[1] = 0.05;
+      if (s[2] < 0.2) s[2] = 0.2;
+      sky[2] = s;
+    }
+]]>
+</Script>
+<ROUTE fromNode='Sun' fromField='direction_changed' toNode='Sc1' toField='direction'/>
+
+<ROUTE fromNode='Sc1' fromField='sky' toNode='Bckg' toField='set_skyColor'/>
+
+<ROUTE fromNode='Sc1' fromField='ground' toNode='Bckg' toField='set_groundColor'/>
+
+</Scene>
+</X3D>

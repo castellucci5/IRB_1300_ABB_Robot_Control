@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+<head>
+</head>
+<Scene>
+<ProtoDeclare name='SetPoint_Area'>
+<ProtoInterface>
+<field name='Marker_Translation' type='SFVec3f' accessType='inputOutput' value='0 0 0'/>
+<field name='Marker_Visible' type='SFInt32' accessType='inputOutput' value='0'/>
+<field name='SetPoint_Changed' type='SFVec3f' accessType='outputOnly'/>
+<field name='isActive' type='SFBool' accessType='outputOnly'/>
+</ProtoInterface>
+<ProtoBody>
+  <Transform DEF='Plane_with_Sensor' >
+    <TouchSensor DEF='Touch_Sensor' >    <IS><connect protoField='isActive' nodeField='isActive' />
+    <connect protoField='SetPoint_Changed' nodeField='hitPoint_changed' />
+    </IS>
+    </TouchSensor>
+    <Shape>
+      <Appearance>
+        <Material transparency='0.8' diffuseColor='0 0 1'>
+        </Material>
+      </Appearance>
+      <IndexedFaceSet coordIndex='0 1 2 3 -1'>
+        <Coordinate DEF='Sensor_Coord'  point='-1 0 1 1 0 1 1 0 -1 -1 0 -1'>
+        </Coordinate>
+      </IndexedFaceSet>
+    </Shape>
+  </Transform>
+  <Switch>
+  <IS>
+  <connect protoField='Marker_Visible' nodeField='whichChoice' />
+  </IS>
+    <Transform DEF='Marker' >
+    <IS>
+    <connect protoField='Marker_Translation' nodeField='translation' />
+    </IS>
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='0 1 0'>
+          </Material>
+        </Appearance>
+        <Cone height='0.1' bottomRadius='0.05'>
+        </Cone>
+      </Shape>
+    </Transform>
+  </Switch>
+</ProtoBody></ProtoDeclare>
+<ProtoDeclare name='Toggle'>
+<ProtoInterface>
+<field name='Toggle_Translation' type='SFVec3f' accessType='inputOutput' value='0 0 0'/>
+<field name='Toggle_Rotation' type='SFRotation' accessType='inputOutput' value='0 1 0 0'/>
+<field name='Toggle_Scale' type='SFVec3f' accessType='inputOutput' value='1 1 1'/>
+<field name='Toggle_State' type='SFBool' accessType='outputOnly'/>
+</ProtoInterface>
+<ProtoBody>
+  <Transform DEF='Toggle1' >
+  <IS>
+  <connect protoField='Toggle_Translation' nodeField='translation' />
+  <connect protoField='Toggle_Scale' nodeField='scale' />
+  <connect protoField='Toggle_Rotation' nodeField='rotation' />
+  </IS>
+    <TouchSensor DEF='Toggle_Sensor' >
+    </TouchSensor>
+    <Transform>
+      <Shape>
+        <Appearance>
+          <Material DEF='Switch_Mat'  diffuseColor='0 0.4 0'>
+          </Material>
+        </Appearance>
+        <Box size='0.6 0.6 0.6'>
+        </Box>
+      </Shape>
+    </Transform>
+    <Switch DEF='Toggle_Switch'  whichChoice='0'>
+      <Transform rotation='0 0 1 0.25'>
+        <Transform translation='0 0.5 0'>
+          <Transform>
+            <Shape>
+              <Appearance>
+                <Material DEF='Steel'  specularColor='1 1 1' shininess='0.13' diffuseColor='0.47 0.52 0.58' ambientIntensity='0.123'>
+                </Material>
+              </Appearance>
+              <Cylinder radius='0.1' height='1'>
+              </Cylinder>
+            </Shape>
+          </Transform>
+          <Transform translation='0 0.5 0'>
+            <Shape>
+              <Appearance>
+                <Material USE='Steel' >
+                </Material>
+              </Appearance>
+              <Sphere radius='0.1'>
+              </Sphere>
+            </Shape>
+          </Transform>
+        </Transform>
+      </Transform>
+      <Transform rotation='0 0 1 -0.25'>
+        <Transform translation='0 0.5 0'>
+          <Transform>
+            <Shape>
+              <Appearance>
+                <Material USE='Steel' >
+                </Material>
+              </Appearance>
+              <Cylinder radius='0.1' height='1'>
+              </Cylinder>
+            </Shape>
+          </Transform>
+          <Transform translation='0 0.5 0'>
+            <Shape>
+              <Appearance>
+                <Material USE='Steel' >
+                </Material>
+              </Appearance>
+              <Sphere radius='0.1'>
+              </Sphere>
+            </Shape>
+          </Transform>
+        </Transform>
+      </Transform>
+    </Switch>
+  </Transform>
+  <Script DEF='Toggle_Switch_Script'  directOutput='false' mustEvaluate='false'>
+  <field name='Node1' type='SFNode' accessType='initializeOnly'>
+
+    <Switch USE='Toggle_Switch' >
+    </Switch>  </field>
+  <field name='Node2' type='SFNode' accessType='initializeOnly'>
+
+    <Material USE='Switch_Mat' >
+    </Material>  </field>
+  <field name='SW_Active' type='SFBool' accessType='inputOnly'/>
+  <field name='state' type='SFBool' accessType='outputOnly'/>
+  <IS><connect nodeField='state' protoField='Toggle_State'/></IS>
+  <![CDATA[vrmlscript:
+	 function SW_Active (value) {
+		 if (state)
+		 {
+			 if (value) {
+			  Node1.whichChoice = 0;
+			  Node2.diffuseColor = new SFColor (0, 0.4, 0);
+			  state = FALSE;
+		  }
+		 }
+		 else
+		 {
+		  if (value) {
+ 			 Node1.whichChoice = 1;
+			  Node2.diffuseColor = new SFColor (0.4, 0, 0);
+			  state = TRUE;
+		  }
+		 }
+	 }
+
+  ]]>
+  </Script>
+<ROUTE fromNode='Toggle_Sensor' fromField='isActive' toNode='Toggle_Switch_Script' toField='SW_Active'/>
+
+</ProtoBody></ProtoDeclare>
+<ProtoDeclare name='Push_Button'>
+<ProtoInterface>
+<field name='Button_Translation' type='SFVec3f' accessType='inputOutput' value='0 0 0'/>
+<field name='Button_Scale' type='SFVec3f' accessType='inputOutput' value='1 1 1'/>
+<field name='Button_Caption' type='MFString' accessType='inputOutput' value='"Push" "Button" '/>
+<field name='Button_State' type='SFBool' accessType='outputOnly'/>
+</ProtoInterface>
+<ProtoBody>
+  <Transform>
+  <IS>
+  <connect protoField='Button_Translation' nodeField='translation' />
+  <connect protoField='Button_Scale' nodeField='scale' />
+  </IS>
+    <Transform translation='0 0.2 0'>
+      <Shape>
+        <Appearance>
+          <Material specularColor='0.39 0.39 0.39' shininess='0.11' diffuseColor='0.61 0.61 0.61' ambientIntensity='0.25'>
+          </Material>
+        </Appearance>
+        <Cylinder radius='2.2' height='0.4'>
+        </Cylinder>
+      </Shape>
+    </Transform>
+    <Transform translation='-1.5 0.1 4' rotation='1 0 0 -1.5708'>
+      <Shape>
+        <Appearance>
+          <Material specularColor='0.5 0.5 0.5' emissiveColor='0 0 0.13' diffuseColor='0 0 0.72' ambientIntensity='0'>
+          </Material>
+        </Appearance>
+        <Text>
+        <IS>
+        <connect protoField='Button_Caption' nodeField='string' />
+        </IS>
+          <FontStyle style='BOLD' size='1.2' family='"SANS" '>
+          </FontStyle>
+        </Text>
+      </Shape>
+    </Transform>
+    <Transform scale='1 0.5 1'>
+      <TouchSensor DEF='PushButton_Sensor' >
+      </TouchSensor>
+      <Transform DEF='PushButton_Core'  translation='0 1 0'>
+        <Shape>
+          <Appearance>
+            <Material DEF='PushButton_Mat'  specularColor='0.5 0.5 0.5' emissiveColor='0 0.15 0' diffuseColor='0 0.4 0' ambientIntensity='0'>
+            </Material>
+          </Appearance>
+          <Cylinder radius='1.5'>
+          </Cylinder>
+        </Shape>
+      </Transform>
+    </Transform>
+  </Transform>
+  <Script DEF='PushButton_Script'  directOutput='false' mustEvaluate='false'>
+  <field name='Node1' type='SFNode' accessType='initializeOnly'>
+
+    <Material USE='PushButton_Mat' >
+    </Material>  </field>
+  <field name='Node2' type='SFNode' accessType='initializeOnly'>
+
+    <Transform USE='PushButton_Core' >
+    </Transform>  </field>
+  <field name='PButton_Active' type='SFBool' accessType='inputOnly'/>
+  <field name='state' type='SFBool' accessType='outputOnly'/>
+  <IS><connect nodeField='state' protoField='Button_State'/></IS>
+  <![CDATA[vrmlscript:
+	 function PButton_Active (value) {
+
+		 if (state)
+		 {
+			 Node1.diffuseColor = new SFColor (0, 0.4, 0);
+			 Node2.translation = new SFVec3f (0, 1, 0);
+			 state = FALSE;
+		 }
+		 else
+		 {
+			 Node1.diffuseColor = new SFColor (0.4, 0, 0);
+			 Node2.translation = new SFVec3f (0, 0, 0);
+			 state = TRUE;
+		 }
+
+	 }
+
+  ]]>
+  </Script>
+<ROUTE fromNode='PushButton_Sensor' fromField='isActive' toNode='PushButton_Script' toField='PButton_Active'/>
+
+</ProtoBody></ProtoDeclare>
+<ProtoDeclare name='Switch_Button'>
+<ProtoInterface>
+<field name='Switch_Translation' type='SFVec3f' accessType='inputOutput' value='0 0 0'/>
+<field name='Switch_Scale' type='SFVec3f' accessType='inputOutput' value='1 1 1'/>
+<field name='Switch_Caption' type='MFString' accessType='inputOutput' value='"Switch" '/>
+<field name='Switch_State' type='SFBool' accessType='outputOnly'/>
+</ProtoInterface>
+<ProtoBody>
+  <Transform>
+  <IS>
+  <connect protoField='Switch_Translation' nodeField='translation' />
+  <connect protoField='Switch_Scale' nodeField='scale' />
+  </IS>
+    <Transform translation='0 0.2 0'>
+      <Shape>
+        <Appearance>
+          <Material specularColor='0.39 0.39 0.39' shininess='0.11' diffuseColor='0.61 0.61 0.61' ambientIntensity='0.25'>
+          </Material>
+        </Appearance>
+        <Cylinder radius='2.2' height='0.4'>
+        </Cylinder>
+      </Shape>
+    </Transform>
+    <Transform translation='-1.5 0.1 4.6' rotation='1 0 0 -1.5708'>
+      <Shape>
+        <Appearance>
+          <Material specularColor='0.5 0.5 0.5' emissiveColor='0 0 0.13' diffuseColor='0 0 0.72' ambientIntensity='0'>
+          </Material>
+        </Appearance>
+        <Text>
+        <IS>
+        <connect protoField='Switch_Caption' nodeField='string' />
+        </IS>
+          <FontStyle style='BOLD' size='1.2' family='"SANS" '>
+          </FontStyle>
+        </Text>
+      </Shape>
+    </Transform>
+    <Transform scale='1 0.5 1'>
+      <TouchSensor DEF='SwitchButton_Sensor' >
+      </TouchSensor>
+      <Transform DEF='SwitchButton_Core'  translation='0 1 0'>
+        <Shape>
+          <Appearance>
+            <Material DEF='SwitchButton_Mat'  specularColor='0.5 0.5 0.5' emissiveColor='0 0.15 0' diffuseColor='0 0.4 0' ambientIntensity='0'>
+            </Material>
+          </Appearance>
+          <Cylinder radius='1.5'>
+          </Cylinder>
+        </Shape>
+      </Transform>
+    </Transform>
+  </Transform>
+  <Script DEF='SwitchButton_Script'  directOutput='false' mustEvaluate='false'>
+  <field name='Node1' type='SFNode' accessType='initializeOnly'>
+
+    <Material USE='SwitchButton_Mat' >
+    </Material>  </field>
+  <field name='Node2' type='SFNode' accessType='initializeOnly'>
+
+    <Transform USE='SwitchButton_Core' >
+    </Transform>  </field>
+  <field name='SButton_Active' type='SFBool' accessType='inputOnly'/>
+  <field name='state' type='SFBool' accessType='outputOnly'/>
+  <IS><connect nodeField='state' protoField='Switch_State'/></IS>
+  <![CDATA[vrmlscript:
+	 function SButton_Active (value) {
+
+		 if (state)
+		 {
+			 if (value) {
+				 Node1.diffuseColor = new SFColor (0, 0.4, 0);
+				 Node2.translation = new SFVec3f (0, 1, 0);
+				 state = FALSE;
+			 }
+		 }
+		 else
+		 {
+		  if (value) {
+				 Node1.diffuseColor = new SFColor (0.4, 0, 0);
+				 Node2.translation = new SFVec3f (0, 0, 0);
+				 state = TRUE;
+			 }
+		 }
+
+	 }
+
+  ]]>
+  </Script>
+<ROUTE fromNode='SwitchButton_Sensor' fromField='isActive' toNode='SwitchButton_Script' toField='SButton_Active'/>
+
+</ProtoBody></ProtoDeclare>
+<WorldInfo title='Virtual Control Panel' info='"Copyright 1998-2019 HUMUSOFT s.r.o. and The MathWorks, Inc." '>
+</WorldInfo>
+<NavigationInfo type='"EXAMINE" ' headlight='false'>
+</NavigationInfo>
+<Background skyColor='0.8 0.8 1 0.7 0.7 0.8 0.5 0.5 0.8 0.4 0.4 0.8' skyAngle='1 1.2 1.5708' groundColor='0 0.8 0'>
+</Background>
+<Viewpoint DEF='Camera1'  description='Camera 1' position='-8 15 15' orientation='1 0 0 -0.7' fieldOfView='1.2'>
+</Viewpoint>
+<DirectionalLight direction='-1 -2 -1'>
+</DirectionalLight>
+<DirectionalLight direction='0 -2 1'>
+</DirectionalLight>
+<!--Console-->
+<!--scale 0.5 0.5 0.5-->
+<Transform translation='0 -5 0'>
+  <!--Dummy sensor to avoid accidental navigation when clicking on the panel-->
+  <TouchSensor DEF='Dummy_Sensor' >
+  </TouchSensor>
+  <!--Base Panel-->
+  <Shape>
+    <Appearance>
+      <Material specularColor='0.77 0.77 0.77' shininess='0.6' diffuseColor='0.4 0.4 0.4' ambientIntensity='0.25'>
+      </Material>
+    </Appearance>
+    <IndexedFaceSet solid='false' coordIndex='4 0 1 5 -1 7 3 2 6 -1 6 2 0 4 -1 2 3 1 0 -1 3 7 5 1 -1 7 6 4 5 -1' colorPerVertex='false'>
+      <Coordinate point='-9 5 12 -10 0 15 9 5 12 10 0 15 -9 5 -9 -10 0 -10 9 5 -9 10 0 -10'>
+      </Coordinate>
+    </IndexedFaceSet>
+  </Shape>
+  <!--       Diagram	 -->
+  <Shape>
+    <Appearance>
+      <!--       insert your diagram image here-->
+      <ImageTexture>
+      </ImageTexture>
+    </Appearance>
+    <IndexedFaceSet solid='false' coordIndex='0 1 2 3 -1' colorPerVertex='false'>
+      <TextureCoordinate point='0 0 1 0 1 1 0 1'>
+      </TextureCoordinate>
+      <Coordinate point='-8 5.05 11 8 5.05 11 8 5.05 4 -8 5.05 4'>
+      </Coordinate>
+    </IndexedFaceSet>
+  </Shape>
+  <!--        Description-->
+  <Transform translation='-4 5.1 5.5' rotation='1 0 0 -1.5708'>
+    <Shape>
+      <Appearance>
+        <Material specularColor='0.5 0.5 0.5' emissiveColor='0 0 0.13' diffuseColor='0 0 0.72' ambientIntensity='0'>
+        </Material>
+      </Appearance>
+      <Text string='"    2D Setpoint" "          Area" "" "   Place for your" "panel description" '>
+        <FontStyle style='BOLD' size='1.2' family='"SANS" '>
+        </FontStyle>
+      </Text>
+    </Shape>
+  </Transform>
+  <Transform translation='-3.8 5.1 7.8' rotation='1 0 0 -1.5708'>
+    <Shape>
+      <Appearance>
+        <Material specularColor='0.5 0.5 0.5' emissiveColor='0 0 0.13' diffuseColor='0 0 0.72' ambientIntensity='0'>
+        </Material>
+      </Appearance>
+      <Text DEF='SetPointArea_Text'  string='"&lt;+0.00; +0.00&gt;" '>
+        <FontStyle style='BOLD' family='"TYPEWRITER" '>
+        </FontStyle>
+      </Text>
+    </Shape>
+  </Transform>
+  <!--       Panel Stand-->
+  <Transform>
+    <!--       Column-->
+    <Shape>
+      <Appearance>
+        <Material specularColor='0.67 0.46 0.44' shininess='0.17' diffuseColor='0.57 0.58 0.58' ambientIntensity='0.137'>
+        </Material>
+      </Appearance>
+      <IndexedFaceSet solid='false' coordIndex='4 0 1 5 -1 7 3 2 6 -1 2 3 1 0 -1 3 7 5 1 -1 7 6 4 5 -1 11 9 10 8 -1 4 8 10 0 -1 0 10 11 2 -1 2 11 9 6 -1 8 4 6 9' colorPerVertex='false'>
+        <Coordinate point='-4 -44 -1 -2 0 -6.5 4 -44 -1 2 0 -6.5 -4 -44 -9 -2 0 -9 4 -44 -9 2 0 -9 -5 -46.5 -9 5 -46.5 -9 -5 -46.5 0 5 -46.5 0'>
+        </Coordinate>
+      </IndexedFaceSet>
+    </Shape>
+    <!--       Trapeze-->
+    <Shape>
+      <Appearance>
+        <Material specularColor='0.53 0.53 0.53' shininess='0.93' diffuseColor='0.38 0.38 0.42' ambientIntensity='0.0933'>
+        </Material>
+      </Appearance>
+      <IndexedFaceSet solid='false' coordIndex='0 1 2 3 4 5 -1 0 6 7 1 -1 1 7 8 2 -1 2 8 9 3 -1 3 9 10 4 -1 4 10 11 5 -1 5 0 6 11 -1 11 10 9 8 7 6 -1' colorPerVertex='false'>
+        <Coordinate point='-25 -46.5 -9 -25 -46.5 5 -15 -46.5 10 15 -46.5 10 25 -46.5 5 25 -46.5 -9 -25 -47 -9 -25 -47 5 -15 -47 10 15 -47 10 25 -47 5 25 -47 -9'>
+        </Coordinate>
+      </IndexedFaceSet>
+    </Shape>
+    <!--       Humusoft Logo - Stand	 -->
+    <Shape>
+      <Appearance>
+        <ImageTexture url='"texture/humusoft.png" '>
+        </ImageTexture>
+      </Appearance>
+      <IndexedFaceSet solid='false' coordIndex='0 1 2 3 -1' colorPerVertex='false'>
+        <TextureCoordinate point='0 0 1 0 1 1 0 1'>
+        </TextureCoordinate>
+        <Coordinate point='-15 -46.4 8 15 -46.4 8 15 -46.4 2 -15 -46.4 2'>
+        </Coordinate>
+      </IndexedFaceSet>
+    </Shape>
+  </Transform>
+</Transform>
+<Transform DEF='Switch_Button_Example'  translation='-4 0 -4'>
+  <ProtoInstance DEF='Switch_1' name='Switch_Button'>
+  <fieldValue name='Switch_Translation' value='0 0 0'/>
+  <fieldValue name='Switch_Scale' value='1 1 1'/>
+  <fieldValue name='Switch_Caption' value='"Switch" '/>
+  </ProtoInstance>
+</Transform>
+<Transform DEF='Push_Button_Example'  translation='4 0 -4'>
+  <ProtoInstance DEF='PushButton_1' name='Push_Button'>
+  <fieldValue name='Button_Translation' value='0 0 0'/>
+  <fieldValue name='Button_Scale' value='1 1 1'/>
+  <fieldValue name='Button_Caption' value='"Push" "Button" '/>
+  </ProtoInstance>
+</Transform>
+<Transform DEF='Toggle_Example'  translation='0 0 2' scale='2 2 2' rotation='0 1 0 1.5708'>
+  <ProtoInstance DEF='Toggle_1' name='Toggle'>
+  <fieldValue name='Toggle_Translation' value='0 0 0'/>
+  <fieldValue name='Toggle_Rotation' value='0 1 0 0'/>
+  <fieldValue name='Toggle_Scale' value='1 1 1'/>
+  </ProtoInstance>
+</Transform>
+<Transform DEF='SetPoint_Area_Example'  translation='0 0.2 6' scale='4 1 2'>
+  <ProtoInstance DEF='SetPointArea_1' name='SetPoint_Area'>
+  <fieldValue name='Marker_Translation' value='0 0 0'/>
+  <fieldValue name='Marker_Visible' value='0'/>
+  </ProtoInstance>
+</Transform>
+</Scene>
+</X3D>

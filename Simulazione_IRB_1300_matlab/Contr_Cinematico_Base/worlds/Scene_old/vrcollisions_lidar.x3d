@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+<head>
+</head>
+<Scene>
+<ProtoDeclare name='Obstacle'>
+<ProtoInterface>
+<field name='obstacleTranslation' type='SFVec3f' accessType='inputOutput' value='0 0 0'/>
+</ProtoInterface>
+<ProtoBody>
+  <Transform>
+  <IS>
+  <connect protoField='obstacleTranslation' nodeField='translation' />
+  </IS>
+    <Transform translation='0 0.1 0'>
+      <Shape>
+        <Appearance>
+          <ImageTexture url='"*sl3dlib/objects/Textures/General/Raindrop.png" '>
+          </ImageTexture>
+          <Material specularColor='0.07 0.07 0.2' shininess='0.01' emissiveColor='0.03 0.03 0.04' diffuseColor='0.5 0.5 0.5' ambientIntensity='0.0867'>
+          </Material>
+        </Appearance>
+        <Box size='0.5 0.2 0.5'>
+        </Box>
+      </Shape>
+    </Transform>
+  </Transform>
+</ProtoBody></ProtoDeclare>
+<ProtoDeclare name='Wall'>
+<ProtoInterface>
+<field name='Wall_Rot' type='SFRotation' accessType='inputOutput' value='0 0 1 0'/>
+<field name='Wall_Pos' type='SFVec3f' accessType='inputOutput' value='0 0 0'/>
+</ProtoInterface>
+<ProtoBody>
+  <Transform>
+  <IS>
+  <connect protoField='Wall_Pos' nodeField='translation' />
+  <connect protoField='Wall_Rot' nodeField='rotation' />
+  </IS>
+    <Shape DEF='Wall1' >
+      <Appearance>
+        <TextureTransform scale='6 2'>
+        </TextureTransform>
+        <ImageTexture url='"*sl3dlib/objects/Textures/General/Brick_Stone.png" '>
+        </ImageTexture>
+        <Material diffuseColor='0.25 0.25 0.25'>
+        </Material>
+      </Appearance>
+      <Box size='4.4 0.4 0.2'>
+      </Box>
+    </Shape>
+  </Transform>
+</ProtoBody></ProtoDeclare>
+<ProtoDeclare name='RobotPillar'>
+<ProtoInterface>
+<field name='RPTrans' type='SFVec3f' accessType='inputOutput' value='0 0 0'/>
+</ProtoInterface>
+<ProtoBody>
+  <Transform>
+  <IS>
+  <connect protoField='RPTrans' nodeField='translation' />
+  </IS>
+    <Shape>
+      <Appearance>
+        <Material diffuseColor='0.3 0.3 0.3'>
+        </Material>
+      </Appearance>
+      <Cylinder radius='0.005' height='0.06'>
+      </Cylinder>
+    </Shape>
+  </Transform>
+</ProtoBody></ProtoDeclare>
+<ProtoDeclare name='RobotWheel'>
+<ProtoInterface>
+<field name='RW1Trans' type='SFVec3f' accessType='inputOutput' value='0 0 0'/>
+<field name='RW2Trans' type='SFVec3f' accessType='inputOutput' value='0 0 0'/>
+<field name='RW3Trans' type='SFVec3f' accessType='inputOutput' value='0 0 0'/>
+</ProtoInterface>
+<ProtoBody>
+  <Transform rotation='1 0 0 1.5708'>
+  <IS>
+  <connect protoField='RW1Trans' nodeField='translation' />
+  </IS>
+    <Shape>
+      <Appearance>
+        <Material diffuseColor='0.5 0.5 0.5'>
+        </Material>
+      </Appearance>
+      <Cylinder radius='0.038' height='0.03'>
+      </Cylinder>
+    </Shape>
+    <Transform>
+    <IS>
+    <connect protoField='RW2Trans' nodeField='translation' />
+    </IS>
+      <Shape>
+        <Appearance>
+          <Material>
+          </Material>
+        </Appearance>
+        <Cylinder radius='0.005' height='0.03'>
+        </Cylinder>
+      </Shape>
+    </Transform>
+    <Transform>
+    <IS>
+    <connect protoField='RW3Trans' nodeField='translation' />
+    </IS>
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='0.2 0.2 0.2'>
+          </Material>
+        </Appearance>
+        <Box size='0.04 0.02 0.02'>
+        </Box>
+      </Shape>
+    </Transform>
+  </Transform>
+</ProtoBody></ProtoDeclare>
+<ProtoDeclare name='RobotSupportWheel'>
+<ProtoInterface>
+<field name='RSWTrans' type='SFVec3f' accessType='inputOutput' value='0 0 0'/>
+</ProtoInterface>
+<ProtoBody>
+  <Transform>
+  <IS>
+  <connect protoField='RSWTrans' nodeField='translation' />
+  </IS>
+    <Shape>
+      <Appearance>
+        <Material diffuseColor='0.5 0.5 0.5'>
+        </Material>
+      </Appearance>
+      <Cylinder radius='0.009' height='0.015'>
+      </Cylinder>
+    </Shape>
+    <Transform translation='0 -0.005 0'>
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='0.9 0.9 0.9'>
+          </Material>
+        </Appearance>
+        <Sphere radius='0.009'>
+        </Sphere>
+      </Shape>
+    </Transform>
+  </Transform>
+</ProtoBody></ProtoDeclare>
+<WorldInfo title='Differential Wheeled Robot with LIDAR Sensor' info='"Copyright 1998-2017 HUMUSOFT s.r.o. and The MathWorks, Inc." '>
+</WorldInfo>
+<Background skyColor='0.76238 0.8 0.1427 0.277798 0.219779 0.7 0.222549 0.390234 0.7 0.60094 0.662637 0.69' skyAngle='0.1 1.2 1.57' groundColor='0 0.8 0 0.174249 0.82 0.187362 0.467223 0.82 0.445801 0.621997 0.67 0.600279' groundAngle='0.9 1.5 1.57'>
+</Background>
+<DirectionalLight intensity='0.6' direction='-1 -1 -1' ambientIntensity='0.5'>
+</DirectionalLight>
+<DirectionalLight intensity='0.6' direction='1 -1 1' ambientIntensity='0.5'>
+</DirectionalLight>
+<Viewpoint DEF='VP_Overview'  description='Overview' position='0 3.8 3' orientation='1 0 0 -0.95' fieldOfView='0.7854'>
+</Viewpoint>
+<Viewpoint DEF='VP_Top'  description='View from the Top' position='0 6 0' orientation='1 0 0 -1.5708' fieldOfView='0.7854'>
+</Viewpoint>
+<Transform DEF='Static_Objects' >
+  <Shape DEF='Ground' >
+    <Appearance>
+      <TextureTransform scale='200 200'>
+      </TextureTransform>
+      <ImageTexture url='"*sl3dlib/objects/Textures/General/Pavement2.jpg" '>
+      </ImageTexture>
+    </Appearance>
+    <IndexedFaceSet coordIndex='3 2 1 0 -1' colorPerVertex='false'>
+      <Coordinate point='-105 -0.1 -105 125 -0.1 -105 125 -0.1 125 -105 -0.1 125'>
+      </Coordinate>
+    </IndexedFaceSet>
+  </Shape>
+  <Shape DEF='Floor' >
+    <Appearance>
+      <TextureTransform scale='20 20'>
+      </TextureTransform>
+      <ImageTexture url='"*sl3dlib/objects/Textures/General/Granite.jpg" '>
+      </ImageTexture>
+      <Material DEF='Area_Mat'  shininess='0' diffuseColor='0.37 0.5 0.33' ambientIntensity='0.5'>
+      </Material>
+    </Appearance>
+    <IndexedFaceSet coordIndex='3 2 1 0 -1'>
+      <Coordinate point='-2.2 0 -2.2 2.2 0 -2.2 2.2 0 2.2 -2.2 0 2.2'>
+      </Coordinate>
+    </IndexedFaceSet>
+  </Shape>
+</Transform>
+<Group DEF='Walls_Obstacles' >
+  <ProtoInstance DEF='Block1' name='Obstacle'>
+  <fieldValue name='obstacleTranslation' value='-1.5 0 -1.5'/>
+  </ProtoInstance>
+  <ProtoInstance DEF='Block2' name='Obstacle'>
+  <fieldValue name='obstacleTranslation' value='1.65 0 1.65'/>
+  </ProtoInstance>
+  <ProtoInstance DEF='Block3' name='Obstacle'>
+  <fieldValue name='obstacleTranslation' value='1 0 -1.5'/>
+  </ProtoInstance>
+  <ProtoInstance DEF='Block4' name='Obstacle'>
+  <fieldValue name='obstacleTranslation' value='-1 0 1'/>
+  </ProtoInstance>
+  <Transform DEF='Walls' >
+    <ProtoInstance DEF='Wall_1' name='Wall'>
+    <fieldValue name='Wall_Rot' value='0 0 1 0'/>
+    <fieldValue name='Wall_Pos' value='0 0.2 -2.1'/>
+    </ProtoInstance>
+    <ProtoInstance DEF='Wall_2' name='Wall'>
+    <fieldValue name='Wall_Rot' value='0 0 1 0'/>
+    <fieldValue name='Wall_Pos' value='0 0.2 2.1'/>
+    </ProtoInstance>
+    <ProtoInstance DEF='Wall_4' name='Wall'>
+    <fieldValue name='Wall_Rot' value='0 1 0 -1.5708'/>
+    <fieldValue name='Wall_Pos' value='-2.1 0.2 0'/>
+    </ProtoInstance>
+  </Transform>
+</Group>
+<Transform DEF='Robot'  rotation='0 1 0 0'>
+  <Transform DEF='Robot_Parts'  translation='0 0.038 0'>
+    <Transform DEF='Follow_VP_Placement'  translation='-0.7 0.5 0' rotation='0 1 0 -1.5708'>
+      <Viewpoint DEF='VP_Follow'  description='Follow Robot' position='0 0 0' orientation='1 0 0 -0.35' fieldOfView='0.7854'>
+      </Viewpoint>
+    </Transform>
+    <Transform DEF='Robot_Body' >
+      <Transform DEF='top_part'  translation='0 0.05 0'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0.4 0.4 1'>
+            </Material>
+          </Appearance>
+          <Cylinder radius='0.13' height='0.01'>
+          </Cylinder>
+        </Shape>
+      </Transform>
+      <ProtoInstance DEF='RP1' name='RobotPillar'>
+      <fieldValue name='RPTrans' value='0.07 0.02 0.07'/>
+      </ProtoInstance>
+      <ProtoInstance DEF='RP2' name='RobotPillar'>
+      <fieldValue name='RPTrans' value='0.07 0.02 -0.07'/>
+      </ProtoInstance>
+      <ProtoInstance DEF='RP3' name='RobotPillar'>
+      <fieldValue name='RPTrans' value='-0.07 0.02 0.07'/>
+      </ProtoInstance>
+      <ProtoInstance DEF='RP4' name='RobotPillar'>
+      <fieldValue name='RPTrans' value='-0.07 0.02 -0.07'/>
+      </ProtoInstance>
+      <ProtoInstance DEF='W1' name='RobotWheel'>
+      <fieldValue name='RW1Trans' value='0 0 0.1175'/>
+      <fieldValue name='RW2Trans' value='0 -0.015 0'/>
+      <fieldValue name='RW3Trans' value='0 -0.03 0'/>
+      </ProtoInstance>
+      <ProtoInstance DEF='W2' name='RobotWheel'>
+      <fieldValue name='RW1Trans' value='0 0 -0.1175'/>
+      <fieldValue name='RW2Trans' value='0 0.015 0'/>
+      <fieldValue name='RW3Trans' value='0 0.03 0'/>
+      </ProtoInstance>
+      <ProtoInstance DEF='RSW1' name='RobotSupportWheel'>
+      <fieldValue name='RSWTrans' value='0.1 -0.025 0'/>
+      </ProtoInstance>
+      <ProtoInstance DEF='RSW2' name='RobotSupportWheel'>
+      <fieldValue name='RSWTrans' value='-0.1 -0.025 0'/>
+      </ProtoInstance>
+      <Transform DEF='bottom_part'  translation='0 -0.02 0'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0.4 0.4 1'>
+            </Material>
+          </Appearance>
+          <Extrusion spine='0 0 0 0 0.01 0' crossSection='0.0445 0.1222 0.065 0.1126 0.0836 0.0996 0.0996 0.0836 0.1126 0.065 0.1222 0.0445 0.128 0.0226 0.13 0 0.128 -0.0226 0.1222 -0.0445 0.1126 -0.065 0.0996 -0.0836 0.0836 -0.0996 0.065 -0.1126 0.0445 -0.1222 0.045 -0.1 -0.045 -0.1 -0.0445 -0.1222 -0.065 -0.1126 -0.0836 -0.0996 -0.0996 -0.0836 -0.1126 -0.065 -0.1222 -0.0445 -0.128 -0.0226 -0.13 0 -0.128 0.0226 -0.1222 0.0445 -0.1126 0.065 -0.0996 0.0836 -0.0836 0.0996 -0.065 0.1126 -0.0445 0.1222 -0.045 0.1 0.045 0.1 0.0445 0.1222' creaseAngle='0.5'>
+          </Extrusion>
+        </Shape>
+      </Transform>
+    </Transform>
+    <Transform DEF='Lidar_Placement'  translation='0 0.08 0' rotation='0 1 0 0'>
+      <Transform DEF='Lidar_Puck'  rotation='0 1 0 0'>
+        <Transform>
+          <Shape>
+            <Appearance>
+              <Material specularColor='0.5 0.5 0.5' shininess='0.12' emissiveColor='0 0.06 0.1' diffuseColor='0.33 0.33 0.33' ambientIntensity='0.04'>
+              </Material>
+            </Appearance>
+            <Cylinder radius='0.028' height='0.06'>
+            </Cylinder>
+          </Shape>
+        </Transform>
+        <Transform translation='0 0.005 0'>
+          <Shape>
+            <Appearance>
+              <Material specularColor='0.5 0.5 0.5' shininess='0.3' emissiveColor='0 0.06 0.1' diffuseColor='0.1 0.1 0.1' ambientIntensity='0.04'>
+              </Material>
+            </Appearance>
+            <Cylinder radius='0.03' height='0.03'>
+            </Cylinder>
+          </Shape>
+        </Transform>
+        <Shape>
+          <Appearance>
+            <Material DEF='Lineset_Sensor_Mat'  transparency='0.7' emissiveColor='0 1 0'>
+            </Material>
+          </Appearance>
+          <IndexedLineSet DEF='Lineset_Sensor'  coordIndex='0 1 -1 0 2 -1 0 3 -1 0 4 -1 0 5 -1 0 6 -1 0 7 -1 0 8 -1 0 9 -1 0 10 -1 0 11 -1 0 12 -1 0 13 -1 0 14 -1 0 15 -1 0 16 -1 0 17 -1 0 18 -1 0 19 -1 0 20 -1 0 21 -1 0 22 -1 0 23 -1 0 24 -1 0 25 -1 0 26 -1 0 27 -1 0 28 -1 0 29 -1 0 30 -1 0 31 -1 0 32 -1 0 33 -1 0 34 -1 0 35 -1 0 36 -1 0 37 -1 0 38 -1 0 39 -1 0 40 -1 0 41 -1 0 42 -1 0 43 -1 0 44 -1 0 45 -1 0 46 -1 0 47 -1 0 48 -1 0 49 -1 0 50 -1 0 51 -1' colorPerVertex='false'>
+            <Coordinate DEF='Sensor_Coord'  point='0 0 0 6.12323e-16 0 -10 0.627905 0 -9.98027 1.25333 0 -9.92115 1.87381 0 -9.82287 2.4869 0 -9.68583 3.09017 0 -9.51056 3.68125 0 -9.29776 4.25779 0 -9.04827 4.81754 0 -8.76307 5.35827 0 -8.44328 5.87785 0 -8.09017 6.37424 0 -7.70513 6.84547 0 -7.28969 7.28969 0 -6.84547 7.70513 0 -6.37424 8.09017 0 -5.87785 8.44328 0 -5.35827 8.76307 0 -4.81754 9.04827 0 -4.25779 9.29776 0 -3.68125 9.51056 0 -3.09017 9.68583 0 -2.4869 9.82287 0 -1.87381 9.92115 0 -1.25333 9.98027 0 -0.627905 10 0 0 9.98027 0 0.627905 9.92115 0 1.25333 9.82287 0 1.87381 9.68583 0 2.4869 9.51056 0 3.09017 9.29776 0 3.68125 9.04827 0 4.25779 8.76307 0 4.81754 8.44328 0 5.35827 8.09017 0 5.87785 7.70513 0 6.37424 7.28969 0 6.84547 6.84547 0 7.28969 6.37424 0 7.70513 5.87785 0 8.09017 5.35827 0 8.44328 4.81754 0 8.76307 4.25779 0 9.04827 3.68125 0 9.29776 3.09017 0 9.51056 2.4869 0 9.68583 1.87381 0 9.82287 1.25333 0 9.92115 0.627905 0 9.98027 6.12323e-16 0 10'>
+            </Coordinate>
+          </IndexedLineSet>
+        </Shape>
+        <Shape>
+          <Appearance>
+            <Material DEF='Lineset_Visual_Mat'  emissiveColor='0 0 1'>
+            </Material>
+          </Appearance>
+          <IndexedLineSet DEF='Lineset_Visual'  coordIndex='0 1 -1 0 2 -1 0 3 -1 0 4 -1 0 5 -1 0 6 -1 0 7 -1 0 8 -1 0 9 -1 0 10 -1 0 11 -1 0 12 -1 0 13 -1 0 14 -1 0 15 -1 0 16 -1 0 17 -1 0 18 -1 0 19 -1 0 20 -1 0 21 -1 0 22 -1 0 23 -1 0 24 -1 0 25 -1 0 26 -1 0 27 -1 0 28 -1 0 29 -1 0 30 -1 0 31 -1 0 32 -1 0 33 -1 0 34 -1 0 35 -1 0 36 -1 0 37 -1 0 38 -1 0 39 -1 0 40 -1 0 41 -1 0 42 -1 0 43 -1 0 44 -1 0 45 -1 0 46 -1 0 47 -1 0 48 -1 0 49 -1 0 50 -1 0 51 -1' colorPerVertex='false'>
+            <Coordinate DEF='Sensor_Visual_Coord'  point='0 0 0 6.12323e-16 0 -10 0.627905 0 -9.98027 1.25333 0 -9.92115 1.87381 0 -9.82287 2.4869 0 -9.68583 3.09017 0 -9.51056 3.68125 0 -9.29776 4.25779 0 -9.04827 4.81754 0 -8.76307 5.35827 0 -8.44328 5.87785 0 -8.09017 6.37424 0 -7.70513 6.84547 0 -7.28969 7.28969 0 -6.84547 7.70513 0 -6.37424 8.09017 0 -5.87785 8.44328 0 -5.35827 8.76307 0 -4.81754 9.04827 0 -4.25779 9.29776 0 -3.68125 9.51056 0 -3.09017 9.68583 0 -2.4869 9.82287 0 -1.87381 9.92115 0 -1.25333 9.98027 0 -0.627905 10 0 0 9.98027 0 0.627905 9.92115 0 1.25333 9.82287 0 1.87381 9.68583 0 2.4869 9.51056 0 3.09017 9.29776 0 3.68125 9.04827 0 4.25779 8.76307 0 4.81754 8.44328 0 5.35827 8.09017 0 5.87785 7.70513 0 6.37424 7.28969 0 6.84547 6.84547 0 7.28969 6.37424 0 7.70513 5.87785 0 8.09017 5.35827 0 8.44328 4.81754 0 8.76307 4.25779 0 9.04827 3.68125 0 9.29776 3.09017 0 9.51056 2.4869 0 9.68583 1.87381 0 9.82287 1.25333 0 9.92115 0.627905 0 9.98027 6.12323e-16 0 10'>
+            </Coordinate>
+          </IndexedLineSet>
+        </Shape>
+        <LinePickSensor DEF='LIDAR_Sensor'  sortOrder='CLOSEST' intersectionType='GEOMETRY'>
+          <IndexedLineSet USE='Lineset_Sensor'  containerField='pickingGeometry'>
+          </IndexedLineSet>
+          <Group USE='Walls_Obstacles'  containerField='pickTarget'>
+          </Group>
+        </LinePickSensor>
+      </Transform>
+    </Transform>
+  </Transform>
+</Transform>
+<Transform DEF='Camera_Observe' >
+  <Viewpoint DEF='Observe_Robot'  description='Observe Robot' position='-0.315694 0.206667 0.296305' orientation='-0.291749 -0.945157 -0.146834 0.861654' fieldOfView='0.7854'>
+  </Viewpoint>
+</Transform>
+<ROUTE fromNode='Robot' fromField='translation' toNode='Camera_Observe' toField='translation'/>
+
+</Scene>
+</X3D>

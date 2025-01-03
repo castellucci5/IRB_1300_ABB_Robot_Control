@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+<head>
+</head>
+<Scene>
+<WorldInfo title='Simple Collision Detection' info='"Copyright 1998-2017 HUMUSOFT s.r.o. and The MathWorks, Inc." '>
+</WorldInfo>
+<NavigationInfo type='"EXAMINE" '>
+</NavigationInfo>
+<Background groundColor='0 0.8 0' skyAngle='1 1.2 1.5708' skyColor='0.8 0.8 1 0.7 0.7 0.8 0.5 0.5 0.8 0.4 0.4 0.8'>
+</Background>
+<Viewpoint DEF='VP_Overview'  fieldOfView='0.7854' description='Overview' orientation='-1 -0 0 1.25' position='0 11.7564 3.66351'>
+</Viewpoint>
+<Transform DEF='Walls_Obstacles'>
+    <Transform DEF='Obstacle_2' translation='3 0 -0.8' rotation='0 1 0 0'>
+        <Shape>
+            <Appearance>
+                <Material diffuseColor='1 0.8 0.4'>
+                </Material>
+            </Appearance>
+            <Sphere radius='1'>
+            </Sphere>
+        </Shape>
+    </Transform>
+    <Transform DEF='Obstacle_1' translation='-1 0.5 1' rotation='0 1 0 1'>
+        <Shape>
+            <Appearance>
+                <Material diffuseColor='1 0.8 0.4'>
+                </Material>
+            </Appearance>
+            <Box size='1 1 2'>
+            </Box>
+        </Shape>
+    </Transform>
+    <Transform DEF='Wall_1' translation='0 0.8 -4'>
+        <Shape>
+            <Appearance>
+                <Material>
+                </Material>
+            </Appearance>
+            <Box size='8.3 2 0.3'>
+            </Box>
+        </Shape>
+    </Transform>
+    <Transform DEF='Wall_2' translation='0 0.8 4'>
+        <Shape>
+            <Appearance>
+                <Material>
+                </Material>
+            </Appearance>
+            <Box size='8.3 2 0.3'>
+            </Box>
+        </Shape>
+    </Transform>
+    <Transform  DEF='Wall_3' translation='-4 0.8 0'>
+        <Shape>
+            <Appearance>
+                <Material>
+                </Material>
+            </Appearance>
+            <Box size='0.3 2 8.3'>
+            </Box>
+        </Shape>
+    </Transform>
+    <Transform DEF='Wall_4' translation='4 0.8 0'>
+        <Shape>
+            <Appearance>
+                <Material>
+                </Material>
+            </Appearance>
+            <Box size='0.3 2 8.3'>
+            </Box>
+        </Shape>
+    </Transform>
+</Transform>
+<Transform DEF='Floor' translation='0 -0.099 0'>
+    <Shape>
+        <Appearance>
+            <Material emissiveColor='0.3 0.3 0.3' diffuseColor='0.4 0.4 0.4'>
+            </Material>
+        </Appearance>
+        <Box size='8 0.2 8'>
+        </Box>
+    </Shape>
+</Transform>
+<Transform DEF='Robot'  rotation='0 1 0 0'>
+  <Transform DEF='Robot_Body'  rotation='0 1 0 0' translation='0 0.2 0'>
+    <Shape>
+      <Appearance>
+        <Material DEF='Robot_color'  specularColor='0.4 0.4 0.6' diffuseColor='0.6 0.6 1'>
+        </Material>
+      </Appearance>
+      <Cylinder radius='0.5' height='0.4'>
+      </Cylinder>
+    </Shape>
+    <Shape>
+      <Appearance>
+        <Material emissiveColor='1 1 0' transparency='0.5'>
+        </Material>
+      </Appearance>
+      <IndexedLineSet DEF='Line_Set'  coordIndex='0 5 -1 0 1 -1 0 7 -1' colorPerVertex='false'>
+        <Coordinate DEF='Line_Set_Point'  point='0 0 0 1 0 0 -1 0 0 0 0 1 0 0 -1 0.707 0 0.707 -0.707 0 0.707 0.707 0 -0.707 -0.707 0 -0.707'>
+        </Coordinate>
+      </IndexedLineSet>
+    </Shape>
+    <LinePickSensor DEF='Collision_Sensor'  intersectionType='GEOMETRY' sortOrder='CLOSEST'>
+      <IndexedLineSet USE='Line_Set'  containerField='pickingGeometry'>
+      </IndexedLineSet>
+      <Transform USE='Walls_Obstacles'  containerField='pickTarget'>
+      </Transform>
+    </LinePickSensor>
+  </Transform>
+  <Transform translation='-1.5 1 0' rotation='0 0 1 -0.3'>
+    <Viewpoint DEF='VR_Follow'  fieldOfView='1' description='Follow Robot' orientation='0 1 0 -1.5708' position='0 0.5 0'>
+    </Viewpoint>
+  </Transform>
+</Transform>
+</Scene>
+</X3D>

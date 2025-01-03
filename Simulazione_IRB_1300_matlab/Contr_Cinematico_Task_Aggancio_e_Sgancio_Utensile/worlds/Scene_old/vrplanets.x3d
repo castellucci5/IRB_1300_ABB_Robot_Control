@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+<head>
+</head>
+<Scene>
+<WorldInfo title='Planets' info='"Copyright 1998-2019 HUMUSOFT s.r.o. and The MathWorks, Inc." '>
+</WorldInfo>
+<Viewpoint DEF='TopView'  description='View from top' position='0 150 0' orientation='-1 0 0 1.5708'>
+</Viewpoint>
+<Viewpoint DEF='PerspectiveView'  description='Perspective view' position='0 15 62.2438' orientation='-1 0 0 0.349066'>
+</Viewpoint>
+<NavigationInfo visibilityLimit='500' type='"examine" ' headlight='false' avatarSize='0.1 0.1 0.1'>
+</NavigationInfo>
+<Background topUrl='"texture/backgrd.png" ' rightUrl='"texture/backgrd.png" ' leftUrl='"texture/backgrd.png" ' frontUrl='"texture/backgrd2.png" ' bottomUrl='"texture/backgrd2.png" ' backUrl='"texture/backgrd2.png" '>
+</Background>
+<Transform DEF='Moon'  translation='0 0 33.12' rotation='0 1 0 0'>
+  <Shape>
+    <Appearance>
+      <ImageTexture url='"texture/moonmap_s.jpg" '>
+      </ImageTexture>
+      <Material ambientIntensity='1.8'>
+      </Material>
+    </Appearance>
+    <Sphere radius='0.5'>
+    </Sphere>
+  </Shape>
+</Transform>
+<Transform DEF='Mercury'  translation='0 0 11.6' rotation='0 1 0 0' center='6 0 0'>
+  <Shape>
+    <Appearance>
+      <ImageTexture url='"texture/mercurymap_s.jpg" '>
+      </ImageTexture>
+      <Material ambientIntensity='2.5'>
+      </Material>
+    </Appearance>
+    <Sphere radius='0.7'>
+    </Sphere>
+  </Shape>
+</Transform>
+<Transform DEF='Venus'  translation='0 0 21.6' rotation='0 1 0 0'>
+  <Shape>
+    <Appearance>
+      <ImageTexture url='"texture/venusmap_s.jpg" '>
+      </ImageTexture>
+      <Material ambientIntensity='2.9'>
+      </Material>
+    </Appearance>
+    <Sphere radius='1.82'>
+    </Sphere>
+  </Shape>
+</Transform>
+<Transform DEF='Earth'  translation='0 0 30' rotation='0 1 0 0'>
+  <Shape>
+    <Appearance>
+      <ImageTexture url='"texture/earthmap_s.jpg" '>
+      </ImageTexture>
+      <Material shininess='0.9' ambientIntensity='2.5'>
+      </Material>
+    </Appearance>
+    <Sphere radius='1.82'>
+    </Sphere>
+  </Shape>
+  <Viewpoint DEF='EarthView'  description='View on Earth' position='-2 1.9 5' orientation='-1 0 0 0.1'>
+  </Viewpoint>
+</Transform>
+<Transform DEF='Mars'  translation='0 0 45.6' rotation='0 1 0 0'>
+  <Shape>
+    <Appearance>
+      <ImageTexture url='"texture/marsmap_s.jpg" '>
+      </ImageTexture>
+      <Material specularColor='0.16 0.16 0.16' diffuseColor='0 0 0' ambientIntensity='2.2'>
+      </Material>
+    </Appearance>
+    <Sphere radius='0.91'>
+    </Sphere>
+  </Shape>
+</Transform>
+<Transform DEF='Sun'  rotation='0 1 0 0'>
+  <PointLight radius='500' intensity='6' color='1 0.8 0.424456' ambientIntensity='0.2'>
+  </PointLight>
+  <Shape>
+    <Appearance>
+      <ImageTexture DEF='SunTexture'  url='"texture/solmap_s.jpg" '>
+      </ImageTexture>
+      <Material specularColor='1 1 1' shininess='0.4' emissiveColor='1 1 0' diffuseColor='1 1 0.1'>
+      </Material>
+    </Appearance>
+    <Sphere radius='6'>
+    </Sphere>
+  </Shape>
+</Transform>
+</Scene>
+</X3D>

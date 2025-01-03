@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+<head>
+</head>
+<Scene>
+<ExternProtoDeclare name='Octavia' url='"proto/octavia_protos.x3d#Octavia" '>
+<field name='Body_Scale' type='SFVec3f' accessType='inputOutput'/>
+<field name='Car_EmissiveColor' type='SFColor' accessType='inputOutput'/>
+<field name='Car_SpecularColor' type='SFColor' accessType='inputOutput'/>
+<field name='Car_DiffuseColor' type='SFColor' accessType='inputOutput'/>
+<field name='Force4_Scale' type='SFVec3f' accessType='inputOutput'/>
+<field name='Force3_Scale' type='SFVec3f' accessType='inputOutput'/>
+<field name='Force2_Scale' type='SFVec3f' accessType='inputOutput'/>
+<field name='Force1_Scale' type='SFVec3f' accessType='inputOutput'/>
+<field name='Forces_Switch' type='SFInt32' accessType='inputOutput'/>
+<field name='Backlights_Switch' type='SFInt32' accessType='inputOutput'/>
+<field name='SteeringWheel1_Rotation' type='SFRotation' accessType='inputOutput'/>
+<field name='WheelRR_Spin_Rotation' type='SFRotation' accessType='inputOutput'/>
+<field name='WheelRR_Translation' type='SFVec3f' accessType='inputOutput'/>
+<field name='WheelRR_Rotation' type='SFRotation' accessType='inputOutput'/>
+<field name='WheelRL_Spin_Rotation' type='SFRotation' accessType='inputOutput'/>
+<field name='WheelRL_Translation' type='SFVec3f' accessType='inputOutput'/>
+<field name='WheelRL_Rotation' type='SFRotation' accessType='inputOutput'/>
+<field name='WheelFR_Spin_Rotation' type='SFRotation' accessType='inputOutput'/>
+<field name='WheelFR_Translation' type='SFVec3f' accessType='inputOutput'/>
+<field name='WheelFR_Rotation' type='SFRotation' accessType='inputOutput'/>
+<field name='WheelFL_Spin_Rotation' type='SFRotation' accessType='inputOutput'/>
+<field name='WheelFL_Translation' type='SFVec3f' accessType='inputOutput'/>
+<field name='WheelFL_Rotation' type='SFRotation' accessType='inputOutput'/>
+<field name='Car_Rotation' type='SFRotation' accessType='inputOutput'/>
+<field name='Car_Position' type='SFVec3f' accessType='inputOutput'/>
+
+</ExternProtoDeclare>
+
+<WorldInfo title='Vehicle Dynamics Visualization - Multiple Vehicles' info='"Vehicles implemented as EXTERNPROTOs to allow easy instantiation of several vehicles." "Skoda Octavia model copyright Skoda Auto, courtesy of Ismar VR, Czech Republic." "Copyright 1998-2019 HUMUSOFT s.r.o. and The MathWorks, Inc." '>
+</WorldInfo>
+<NavigationInfo headlight='false' avatarSize='0.1 1 1'>
+</NavigationInfo>
+<Background skyColor='0.76238 0.8 0.1427 0.277798 0.219779 0.7 0.222549 0.390234 0.7 0.60094 0.662637 0.69' skyAngle='0.1 1.2 1.57' groundColor='0 0.8 0 0.174249 0.82 0.187362 0.467223 0.82 0.445801 0.621997 0.67 0.600279' groundAngle='0.9 1.5 1.57'>
+</Background>
+<DirectionalLight intensity='0.7' direction='-1 -1 -1'>
+</DirectionalLight>
+<DirectionalLight intensity='0.6' direction='0 0 1'>
+</DirectionalLight>
+<DirectionalLight intensity='0.7' direction='1 -1 -1'>
+</DirectionalLight>
+<ProtoInstance DEF='Car_1' name='Octavia'>
+<fieldValue name='Body_Scale' value='1 1 1'/>
+<fieldValue name='Car_EmissiveColor' value='0.09 0.01 0.02'/>
+<fieldValue name='Car_SpecularColor' value='0.5 0 0'/>
+<fieldValue name='Car_DiffuseColor' value='0.39 0 0.1'/>
+<fieldValue name='Force4_Scale' value='1 1 1'/>
+<fieldValue name='Force3_Scale' value='1 1 1'/>
+<fieldValue name='Force2_Scale' value='1 1 1'/>
+<fieldValue name='Force1_Scale' value='1 1 1'/>
+<fieldValue name='Forces_Switch' value='0'/>
+<fieldValue name='Backlights_Switch' value='0'/>
+<fieldValue name='SteeringWheel1_Rotation' value='0 1 0 0'/>
+<fieldValue name='WheelRR_Spin_Rotation' value='0 0 1 0'/>
+<fieldValue name='WheelRR_Translation' value='-2.57 0 0.702'/>
+<fieldValue name='WheelRR_Rotation' value='0 1 0 0'/>
+<fieldValue name='WheelRL_Spin_Rotation' value='0 0 1 0'/>
+<fieldValue name='WheelRL_Translation' value='-2.57 0 -0.702'/>
+<fieldValue name='WheelRL_Rotation' value='0 1 0 0'/>
+<fieldValue name='WheelFR_Spin_Rotation' value='0 0 1 0'/>
+<fieldValue name='WheelFR_Translation' value='0 0 0.702'/>
+<fieldValue name='WheelFR_Rotation' value='0 1 0 0'/>
+<fieldValue name='WheelFL_Spin_Rotation' value='0 0 1 0'/>
+<fieldValue name='WheelFL_Translation' value='0 0 -0.702'/>
+<fieldValue name='WheelFL_Rotation' value='0 1 0 0'/>
+<fieldValue name='Car_Rotation' value='0 1 0 0'/>
+<fieldValue name='Car_Position' value='0 0.2864 0'/>
+</ProtoInstance>
+<ProtoInstance DEF='Car_2' name='Octavia'>
+<fieldValue name='Body_Scale' value='1 1 1'/>
+<fieldValue name='Car_EmissiveColor' value='0.09 0.01 0.02'/>
+<fieldValue name='Car_SpecularColor' value='0.5 0 0'/>
+<fieldValue name='Car_DiffuseColor' value='0.39 0 0.1'/>
+<fieldValue name='Force4_Scale' value='1 1 1'/>
+<fieldValue name='Force3_Scale' value='1 1 1'/>
+<fieldValue name='Force2_Scale' value='1 1 1'/>
+<fieldValue name='Force1_Scale' value='1 1 1'/>
+<fieldValue name='Forces_Switch' value='0'/>
+<fieldValue name='Backlights_Switch' value='0'/>
+<fieldValue name='SteeringWheel1_Rotation' value='0 1 0 0'/>
+<fieldValue name='WheelRR_Spin_Rotation' value='0 0 1 0'/>
+<fieldValue name='WheelRR_Translation' value='-2.57 0 0.702'/>
+<fieldValue name='WheelRR_Rotation' value='0 1 0 0'/>
+<fieldValue name='WheelRL_Spin_Rotation' value='0 0 1 0'/>
+<fieldValue name='WheelRL_Translation' value='-2.57 0 -0.702'/>
+<fieldValue name='WheelRL_Rotation' value='0 1 0 0'/>
+<fieldValue name='WheelFR_Spin_Rotation' value='0 0 1 0'/>
+<fieldValue name='WheelFR_Translation' value='0 0 0.702'/>
+<fieldValue name='WheelFR_Rotation' value='0 1 0 0'/>
+<fieldValue name='WheelFL_Spin_Rotation' value='0 0 1 0'/>
+<fieldValue name='WheelFL_Translation' value='0 0 -0.702'/>
+<fieldValue name='WheelFL_Rotation' value='0 1 0 0'/>
+<fieldValue name='Car_Rotation' value='0 1 0 0'/>
+<fieldValue name='Car_Position' value='0 0.2864 0'/>
+</ProtoInstance>
+<Viewpoint DEF='FlyingCamera'  description='Simulink Controlled Viewpoint' position='0 2 10'>
+</Viewpoint>
+<!--Road-->
+<Transform DEF='RoadSystem' >
+  <Inline url='"proto/octavia_road_flat.x3d" '>
+  </Inline>
+</Transform>
+<!--Surrounding objects dependent on manoeuvre settings (cones...)-->
+<Transform DEF='Surrounding_Objects' >
+  <Inline url='"proto/octavia_lchg_cones.x3d" '>
+  </Inline>
+</Transform>
+<Transform DEF='Startline' >
+  <Shape>
+    <Appearance>
+      <Material emissiveColor='1 1 1' diffuseColor='1 1 1'>
+      </Material>
+    </Appearance>
+    <Box size='0.1 0.04 8'>
+    </Box>
+  </Shape>
+</Transform>
+<Viewpoint description='Scene in XY' position='0 30 0' orientation='1 0 0 -1.5708'>
+</Viewpoint>
+<Viewpoint description='Scene in XZ' position='0 5 30' orientation='0 1 0 0'>
+</Viewpoint>
+<Viewpoint description='Scene in YZ' position='-30 5 0' orientation='0 1 0 -1.5708'>
+</Viewpoint>
+</Scene>
+</X3D>
