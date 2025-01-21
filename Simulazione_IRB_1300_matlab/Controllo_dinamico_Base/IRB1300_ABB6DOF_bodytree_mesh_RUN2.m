@@ -99,21 +99,21 @@ rb.r (:,:,6) = [-0.0075113 8.3244E-05 -0.056129].';
 busInfo2 = Simulink.Bus.createObject(rb);
 
 
-%% To control in the joint space 
-%% questa parte viene utilizzata nel controllo dinamico 
-%% nello spazio dei giunti per controllare i PD
+% To control in the joint space 
+% questa parte viene utilizzata nel controllo dinamico 
+% nello spazio dei giunti per controllare i PD
 
-Kp = [0 0 0 0 0 0
-      0 0 0 0 0 0
-      0 0 0 0 0 0
-      0 0 0 0 0 0
-      0 0 0 0 0 0
-      0 0 0 0 0 0];
-
-
-Kd = [0 0 0 0 0 0
-      0 0 0 0 0 0
-      0 0 0 0 0 0
-      0 0 0 0 0 0
-      0 0 0 0 0 0
-      0 0 0 0 0 0];
+% Kp = [0 0 0 0 0 0
+%       0 0 0 0 0 0
+%       0 0 0 0 0 0
+%       0 0 0 0 0 0
+%       0 0 0 0 0 0
+%       0 0 0 0 0 0];
+% 
+% 
+% Kd = [0 0 0 0 0 0
+%       0 0 0 0 0 0
+%       0 0 0 0 0 0
+%       0 0 0 0 0 0
+%       0 0 0 0 0 0
+%       0 0 0 0 0 0];
