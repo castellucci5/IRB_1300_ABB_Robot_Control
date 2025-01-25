@@ -103,20 +103,16 @@ addBody(Irb1300,body5,'body4')
 addBody(Irb1300,body6,'body5')
 
 % Verify that your robot was built properly by using the showdetails or show
-% function. showdetails lists all the bodies in the MATLAB® command window. 
+% function. showdetails lists all the bodies in the MATLABÂ® command window. 
 % show displays the robot with a given configuration (home by default). 
 % Calls to axis modify the axis limits and hide the axis labels.
 showdetails(Irb1300)
 
-% config=6×2 struct
-%   JointName
-%   JointPosition
 
 % homeConfiguration returns the home configuration of the robot model with
 % q vector [0]^T
 config = homeConfiguration(Irb1300);
-% set config as a struct and define the joint value (2).jointPosition
-% config(2).JointPosition = pi/2;
+
 
  show(Irb1300, config);
 % il comando seguente con 'visual','off' permette di spegnere la mesh e
@@ -128,14 +124,5 @@ T06 = getTransform(Irb1300,config,'body6','body1');
 
 clear DH;
 % nella lezione 24 in cui prepara i file per il controllo dinamico 
-%perchè nel File RUN2_Irb120_parameters.m riutilizza nuovamente la mmatrice
+%perchÃ¨ nel File RUN2_Irb120_parameters.m riutilizza nuovamente la mmatrice
 % DH
-
-%% set new configuration
-% newConfig = config;
-% newConfig(2).JointPosition = pi;
-% newConfig(4).JointPosition = pi/4;
-% newConfig(5).JointPosition = -pi/2;
-% newConfig(6).JointPosition = -pi/2;
-% 
-% show(Irb120, newConfig);
