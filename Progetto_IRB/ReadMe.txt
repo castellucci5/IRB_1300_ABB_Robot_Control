@@ -18,7 +18,7 @@ Contenuto della directory Progetto_IRB :
  |	   |		file -> J_Jp_Jo_irb1300.mat : Questo file viene prodotto dallo script: MatriceDH_Robot_irb1300.m
  |         |            file -> Robot_irb1300_Pinza_Hsk.urdf : Questo file contiene i parametri inerziali del robot utilizzati nei file:IRB1300_ABB6DOF_bodytree_mesh_RUN1.m
  |         |		file -> IRB1300_ABB6DOF_bodytree_mesh_RUN1.m : Questo file genera il modello grafico della simulazione e necessita dei file contenuti nella directory: mesh_IRB1300
- |         |            file -> robot_scene_2.x3d : Questo file contiene la scena utilizzata dal modello simulinke e necessita dei file contenuti nella directory: oggetti_nella_scena
+ |         |            file -> robot_scene_2.x3d : Questo file contiene la scena utilizzata dal modello simulink e necessita dei file contenuti nella directory: oggetti_nella_scena
  |         |	        file -> Modello_Irb1300.slx : Questo file è il modello del controllo cinematico e prima di eseguirlo è necessario eseguire lo script:IRB1300_ABB6DOF_bodytree_mesh_RUN1.m
  |         |
  |         |    >-------------------------------------------------------------------------------------------------------------------------------------------------------------------<
