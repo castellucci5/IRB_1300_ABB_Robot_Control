@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Robot_irb1300_Pinza_Hsk">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.022151 -0.00064381 0.12758"
+        rpy="0 0 0" />
+      <mass
+        value="19.788" />
+      <inertia
+        ixx="0.16836"
+        ixy="-0.00110516"
+        ixz="-0.00454035"
+        iyy="0.20294"
+        iyz="0.00016785"
+        izz="0.16698" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link_1">
+    <inertial>
+      <origin
+        xyz="-0.036497 -0.14933 -0.0023116"
+        rpy="0 0 0" />
+     <mass
+        value="22.716" />
+      <inertia
+        ixx="0.282405"
+        ixy="-0.028962"
+        ixz="-0.01027365"
+        iyy="0.20292"
+        iyz="-0.066333"
+        izz="0.24882" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/Link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.78039 0.8 0.78824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/Link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_0"
+    type="revolute">
+    <origin
+      xyz="0.048394 -0.0033044 0.544"
+      rpy="1.5708 0 -0.00131" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="4.88" />
+  </joint>
+  <link
+    name="Link_2">
+    <inertial>
+      <origin
+        xyz="-0.25758 0.0087787 1.2193E-06"
+        rpy="0 0 0" />
+      <mass 
+        value="19.752" />
+      <inertia
+        ixx="0.145509"
+        ixy="-0.0040878"
+        ixz="0.0064962"
+        iyy="0.60138"
+        iyz="5.5479E-05"
+        izz="0.52113" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/Link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.78039 0.8 0.78824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/Link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_1"
+    type="revolute">
+    <origin
+      xyz="-0.0033714 0.42497 -0.002246"
+      rpy="0 0 1.5825" />
+    <parent
+      link="Link_1" />
+    <child
+      link="Link_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.74"
+      upper="2.26"
+      effort="0"
+      velocity="3.97" />
+  </joint>
+  <link
+    name="Link_3">
+    <inertial>
+      <origin
+        xyz="-0.028609 0.0013664 0.005576"
+        rpy="0 0 0" />
+     <mass 
+        value="6.63165" />
+      <inertia
+        ixx="0.0338775"
+        ixy="0.00016443"
+        ixz="-0.0023223"
+        iyy="0.038886"
+        iyz="-5.2326E-06"
+        izz="0.0222495" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/Link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/Link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_2"
+    type="revolute">
+    <origin
+      xyz="0.039966 -0.0018091 -0.00099913"
+      rpy="1.5708 0 -0.038982" />
+    <parent
+      link="Link_2" />
+    <child
+      link="Link_3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.66"
+      upper="1.13"
+      effort="0"
+      velocity="5.75" />
+  </joint>
+  <link
+    name="Link_4">
+    <inertial>
+      <origin
+        xyz="0.0012847 0.15674 0.0021747"
+        rpy="0 0 0" />
+      <mass 
+        value="5.54295" />
+      <inertia
+        ixx="0.044193"
+        ixy="-0.00032541"
+        ixz="0.0001046235"
+        iyy="0.00931725"
+        iyz="0.00340035"
+        izz="0.046155" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/Link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/Link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_3"
+    type="revolute">
+    <origin
+      xyz="1.9864E-05 -0.00080502 0.42474"
+      rpy="-1.5708 0 0.0027372" />
+    <parent
+      link="Link_3" />
+    <child
+      link="Link_4" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-4.01"
+      upper="4.01"
+      effort="0"
+      velocity="8.72" />
+  </joint>
+  <link
+    name="Link_5">
+    <inertial>
+      <origin
+        xyz="5.8483E-05 -0.0089428 0.02235"
+        rpy="0 0 0" />
+      <mass 
+        value="0.90696" />
+      <inertia
+        ixx="0.00156495"
+        ixy="-8.8401E-08"
+        ixz="3.4551E-06"
+        iyy="0.00163875"
+        iyz="-0.00016479"
+        izz="0.00079443" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/Link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/Link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_4"
+    type="revolute">
+    <origin
+      xyz="-2.2787E-05 0 0.0011616"
+      rpy="1.5708 0 0.0049617" />
+    <parent
+      link="Link_4" />
+    <child
+      link="Link_5" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.26"
+      upper="2.26"
+      effort="0"
+      velocity="7.24" />
+  </joint>
+  <link
+    name="Link_6">
+    <inertial>
+      <origin
+        xyz="-0.0075113 8.3244E-05 -0.056129"
+        rpy="0 0 0" />
+      <mass 
+        value="0.283185" />
+      <inertia
+        ixx="0.00022938"
+        ixy="-8.8857E-08"
+        ixz="1.09115E-05"
+        iyy="0.000143523"
+        iyz="7.2021E-08"
+        izz="0.00019938" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/Link_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Robot_irb1300_Pinza_Hsk/meshes/Link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_5"
+    type="revolute">
+    <origin
+      xyz="0.0035611 -0.00048331 0.17607"
+      rpy="0 0 -0.040229" />
+    <parent
+      link="Link_5" />
+    <child
+      link="Link_6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-6.98"
+      upper="6.98"
+      effort="0"
+      velocity="12.56" />
+  </joint>
+</robot>
